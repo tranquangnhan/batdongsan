@@ -64,7 +64,7 @@
               prefix = typeof self.config.output.prefix == 'function' ? self.config.output.prefix.call(self, rangeInput) : self.config.output.prefix,
               format = self.config.output.format($(rangeInput).val()),
               suffix = typeof self.config.output.suffix == 'function' ? self.config.output.suffix.call(self, rangeInput) : self.config.output.suffix;
-            
+      
             // Update the HTML
             $(rangeInput.output).html(prefix + '' + format + '' + suffix);
             $(rangeInput.output).css('left', pos);
@@ -206,6 +206,10 @@
           rangeMin = (min < rangeMin) ? min : rangeMin;
           rangeMax = (max > rangeMax) ? max : rangeMax;
         });
+        $("#left").val(valueMin);
+        $("#right").val(valueMax);
+
+        // console.log(valueMin)
         
         // Get the difference if there are 2 range input, use max for one input.
         // Sets left to 0 for one input and adjust for 2 inputs

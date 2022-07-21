@@ -69,7 +69,7 @@
 
                 <!-- LOGO -->
                 <div class="logo-box">
-                    <a href="index.html" class="logo logo-dark text-center">
+                    <a href="index.php" class="logo logo-dark text-center">
                         <span class="logo-lg">
                             <img src="views/assets/images/logo-dark.png" alt="" height="16">
                         </span>
@@ -77,7 +77,7 @@
                             <img src="views/assets/images/logo-sm.png" alt="" height="24">
                         </span>
                     </a>
-                    <a href="index.html" class="logo logo-light text-center">
+                    <a href="index.php" class="logo logo-light text-center">
                         <span class="logo-lg">
                             <img src="views/assets/images/logo-light.png" alt="" height="16">
                         </span>
@@ -168,7 +168,7 @@
 
 
                             <li>
-                                <a href="index.html">
+                                <a href="index.php">
                                     <i class="mdi mdi-view-dashboard"></i>
                                     <span> Trang Chủ </span>
                                 </a>

@@ -196,4 +196,9 @@ class Model_Tin extends Model_db{
         $sql = "SELECT * FROM tbl_xaphuongthitran WHERE maqh = ?";
         return $this->result1(0,$sql,$id);
     }
+
+    function countPhone($phone){
+        $sql = "SELECT count(*) as countsdt FROM tin WHERE sdt = ?";
+        return $this->result1(1,$sql,$phone)['countsdt'];
+    }
 }

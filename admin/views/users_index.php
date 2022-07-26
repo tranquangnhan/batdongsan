@@ -67,9 +67,7 @@
                             </div>
                         </div>
                         <!-- end row -->
-                       
-                             
-                     
+                
                         
                     </div> <!-- container-fluid -->
 

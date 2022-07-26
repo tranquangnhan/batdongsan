@@ -190,4 +190,45 @@ div.dataTables_wrapper div.dataTables_filter {
   }
   
   /* --- fillter ------ */
+  .hinh{
+    width: 130px ;
+    height: 150px ;
+    margin-bottom: 0.3rem;
+    object-fit: cover;
+  }
+  td:nth-child(8),td:nth-child(9){
+    display: none !important;
+  }
+  .hienloc{
+    display: none;
+  }
+  .dataTables_filter{
+    display: none;
+  }
+  .dataTables_length{
+    display: none;
+  }
   
+@media only screen and (max-width: 767px){
+    .hinh{
+      width: 100% ;
+      height: 70px ;
+      margin-bottom: 0.3rem;
+
+    }
+    .sorting_1{
+      padding: 0 !important;
+    }
+    .p-m-0{
+      padding: 0 !important;
+    }
+    .card-box{
+      padding: 0.5rem !important;
+    }
+    .hienloc{
+      display: block;
+    }
+    .filter{
+      display: none;
+    }
+}

@@ -14,7 +14,7 @@
                                     <p class="text-muted font-14 mb-3">
                                     <?php echo $sub_title; ?>
                                     </p>
-                                    <table id="key-table" class="table mb-0">
+                                    <table class="table mb-0">
                                             <thead class="thead-light">
                                                 <tr>
                                                     <th width="10">STT</th>
@@ -27,7 +27,7 @@
                                                     
                                                 </tr>
                                             </thead>
-                                            <tbody id="tin">
+                                            <tbody >
                                             <?php
                                         $stt = 0;
                                             foreach ($UserList  as $row) {
@@ -67,9 +67,7 @@
                             </div>
                         </div>
                         <!-- end row -->
-                       
-                             
-                     
+                
                         
                     </div> <!-- container-fluid -->
 

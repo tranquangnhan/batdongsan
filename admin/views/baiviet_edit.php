@@ -34,7 +34,7 @@
                                             <?php
                                                $imgs = json_decode($oneRecode['img']);
                                                foreach ($imgs as $row) {
-                                                   echo '<img width="200" style="object-fit: cover; margin-right:15px; border-radius:3px;" height="200" src="'.$row.'" alt="">';
+                                                   echo `<img width="200" style="object-fit: cover; margin-right:15px; border-radius:3px;" height="200" src="${$row}" alt="">`;
                                                }
                                             ?>
                                             <br>
@@ -89,9 +89,18 @@
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="form-group">
-                                                    <label for="">Điện thoại</label>
+                                                    <label for="">Điện thoại</label> 
+                                                    <?=$checkPhone?>
+                                                    
                                                     <input  type="text" name="sdt"  value="<?=$oneRecode['sdt']?>" parsley-trigger="change" required
                                                         placeholder="Nhập số điện thoại" class="form-control" id="emailAddress">
+                                                        <?php
+                                                            if($checkPhone>1){
+                                                                echo '<span class="badge badge-danger badge-pill">Sdt có thể là môi giới, có '.$checkPhone.' bài viết dùng sdt này</span>';
+                                                            }else{
+                                                                echo '<span class="badge badge-success badge-pill"> Có '.$checkPhone.' bài viết dùng sdt này</span>';
+                                                            }
+                                                        ?>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
@@ -249,17 +258,29 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Pháp lý</label>
-                                                    <input  type="text" name="phaply"  value="<?=$oneRecode['phaply']?>" parsley-trigger="change" required
-                                                        placeholder="Nhập pháp lý" class="form-control" id="emailAddress">
+                                                    <select name="phaply" id="" class="form-control">
+                                                        <option value="">Pháp Lý</option>
+                                                        <?php
+                                                            $array = ["0"=>"Sổ hồng/ Sổ đỏ","1"=>"Hợp đồng mua bán / khác"];
+                                                            foreach ($array as $key => $value) {
+                                                                if($key == $oneRecode['phaply']){
+                                                                    echo "<option selected>".$value."</option>";
+                                                                }else{
+                                                                    echo "<option >".$value."</option>";
+                                                                }
+                                                            }
+                                                        ?>
+
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Nguồn</label>
                                                     <select name="nguon" id="" class="form-control">
-                                                        <option value=""></option>
+                                                        <option value="">Nguồn</option>
                                                         <?php
-                                                            $array = ["0"=>"Nhà Chính Chủ","1"=>"Chợ Tốt","2"=>"landlooking","3"=>"Ký gửi"];
+                                                            $array = ["0"=>"Nhà Chính Chủ","1"=>"Nhà bán sg","2"=>"landlooking","3"=>"Chợ tốt"];
                                                             foreach ($array as $key => $value) {
                                                                 if($key == $oneRecode['nguon']){
                                                                     echo "<option selected>".$value."</option>";
@@ -335,8 +356,9 @@
                                           
 
                                         <div class="form-group text-right mb-0 mt-5">
+                                        <a href="?ctrl=baiviet&act=index" clas="btn btn-secondary waves-effect waves-light">Huỷ</a>
                                             <input type="submit" name="them" class="btn btn-primary waves-effect waves-light mr-1" value="Sửa">
-                                           <a href="?ctrl=baiviet&act=index" clas="btn btn-secondary waves-effect waves-light">Huỷ</a>
+                                         
                                         </div>
 
                                     </form>

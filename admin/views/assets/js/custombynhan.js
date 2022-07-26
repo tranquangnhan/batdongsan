@@ -243,7 +243,6 @@ $(document).ready(function () {
               "previous": "Trang Trước"
           },
       },
-      "ordering": false,
       initComplete: function () {
           // Apply the search
           var that = this.api();
@@ -256,31 +255,33 @@ $(document).ready(function () {
               let tieude = $( '#tieude' ).val().toLowerCase();
               let quanhuyen = $( '#quanhuyen' ).find(':selected').attr('data-id')?.toLowerCase();
               let phuongxa = $( '#phuongxaajax' ).val();
-              let dientich = $( '#dientich' ).val();
+              let dientich = $( '#locdientich' ).val();
               let sotang = $( '#sotang' ).val();
               let gia = $("#gia").val();
               let regexGia ='\\b(' + gia +')\\b(?<!-1)';
+              let regexDienTich ='\\b(' + dientich +')\\b(?<!-1)';
               let regexQuanHuyen ='\\b(' + quanhuyen?.replace("quận ","") +')\\b';
-      
+            
               
 
-              that.column(2).search(tieude);
-              console.log(quanhuyen)
+              that.column(1).search(tieude);
               if(quanhuyen == undefined){
-                that.column(3).search("");
+                that.column(2).search("");
               }else{
-             
-                that.column(3).search( regexQuanHuyen, true, false );
+                that.column(2).search( regexQuanHuyen, true, false );
               }
-              that.column(4).search(phuongxa);
-              that.column(5).search( dientich );
-              that.column(6).search( sotang )
+              that.column(3).search(phuongxa);
+              that.column(5).search( sotang )
               if(gia == undefined){
+                that.column(7).search("");
+              }else{
+                that.column(7).search(regexGia, true, false) .draw();
+              }
+              if(dientich == undefined){
                 that.column(8).search("");
               }else{
-                that.column(8).search(regexGia, true, false) .draw();
+                that.column(8).search(regexDienTich, true, false) .draw();
               }
-   
              
                 
           });
@@ -291,3 +292,9 @@ $(document).ready(function () {
   });
 });
 
+$(document).ready(function () {
+    $(".hienloc").click(function (e) { 
+        e.preventDefault();
+        $(".filter").toggle();
+    });
+});

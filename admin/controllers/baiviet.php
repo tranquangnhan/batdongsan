@@ -52,28 +52,28 @@ class BaiViet{
         // parameter represents the DataTables column identifier. In this case simple
         // indexes
       
-     
+        
         $columns = array(
-            array( 'db' => 'id', 'dt' => 0 ),
             array(
                 'db'        => 'img',
-                'dt'        => 1,
+                'dt'        => 0,
                 'formatter' => function( $d, $row ) {
                     $arrayImg = json_decode($d);
                     $imgs = '';
                     foreach ($arrayImg as $item) {
-                        $imgs .= '<img width="150" height="100" src='.$item.' style="object-fit:cover; margin:3px">';
+                        $imgs .= '<img  src='.$item.' class="hinh">';
                     }
                     return  $imgs;
                 }
             ),
-            array( 'db' => 'tieude',  'dt' => 2),
-            array( 'db' => 'quanhuyen',  'dt' => 3 ),
-            array( 'db' => 'phuongxa',   'dt' => 4 ),
-            array( 'db' => 'dientich',  'dt' => 5 ),
-            array( 'db' => 'sotang',  'dt' => 6 ),
-            array( 'db' => 'gia',     'dt' => 7 ),
-            array( 'db' => 'locgia',     'dt' => 8 ),
+            array( 'db' => 'tieude',  'dt' => 1),
+            array( 'db' => 'quanhuyen',  'dt' => 2 ),
+            array( 'db' => 'phuongxa',   'dt' => 3 ),
+            array( 'db' => 'dientich',  'dt' => 4 ),
+            array( 'db' => 'sotang',  'dt' => 5 ),
+            array( 'db' => 'gia',     'dt' => 6 ),
+            array( 'db' => 'locgia',     'dt' => 7 ),
+            array( 'db' => 'locdientich',     'dt' => 8 ),
             array( 'db'        => 'id',
                     'dt'        => 9,
                     'formatter' => function( $d, $row ) {
@@ -132,9 +132,9 @@ class BaiViet{
 
     function index()
     {   
-        $ProductList = $this->model-> GetAllProduct();
+        // $ProductList = $this->model-> GetAllProduct();
         $GetProvince = $this->model->GetAllProvince();
-        $page_title ="Danh sách tin bất động sản";
+        $page_title ="Lọc tin bất động sản";
         $sub_title = "";
         $page_file = "views/baiviet_index.php";
         require_once "views/layout.php";
@@ -143,6 +143,7 @@ class BaiViet{
     {  
         if(isset($_GET['id'])&&($_GET['act']='dienthoai')){
             $oneRecode = $this->model->showOneTin($_GET['id']);
+            $checkPhone = $this->model->countPhone($oneRecode['sdt']);
             $page_title ="Sửa Điện Thoại";
             $page_file = "views/baiviet_edit.php";
         }else{

@@ -185,4 +185,15 @@ class Model_Tin extends Model_db{
         
         return $this->result1(0,$sql);
     }
+
+    function GetAllProvince(){
+        $sql = "SELECT * FROM tbl_quanhuyen WHERE 1";
+        
+        return $this->result1(0,$sql);
+    }
+
+    function GetXaByIdQuanHuyen($id){
+        $sql = "SELECT * FROM tbl_xaphuongthitran WHERE maqh = ?";
+        return $this->result1(0,$sql,$id);
+    }
 }

@@ -1,11 +1,13 @@
 <?php 
 require_once "models/baiviet.php"; 
 require_once "../lib/myfunctions.php"; 
+require_once "../lib/ssp.class.php"; 
 class BaiViet{
     function __construct()
     {
         $this->model = new Model_Tin();
         $this->lib = new lib();
+        $this->ssp = new SSP();
         $act = "index";
 
         if(isset($_GET["act"])==true) $act = $_GET['act'];
@@ -16,6 +18,9 @@ class BaiViet{
                 break;
             case 'getapi':
                 $this->api();
+                break;
+            case 'getxa':
+                $this->getXa();
                 break;
             case 'addnew':
                 $this->addNew();
@@ -36,15 +41,99 @@ class BaiViet{
 
     }
     function api(){
-        $Return = array();
-        $Return['data'] = $this->model-> GetAllProduct();
-        $Return['recordsTotal'] = count( $this->model-> GetAllProduct());
-        echo json_encode($Return);
+            // DB table to use
+        $table = 'tin';
+        
+        // Table's primary key
+        $primaryKey = 'id';
+        
+        // Array of database columns which should be read and sent back to DataTables.
+        // The `db` parameter represents the column name in the database, while the `dt`
+        // parameter represents the DataTables column identifier. In this case simple
+        // indexes
+      
+     
+        $columns = array(
+            array( 'db' => 'id', 'dt' => 0 ),
+            array(
+                'db'        => 'img',
+                'dt'        => 1,
+                'formatter' => function( $d, $row ) {
+                    $arrayImg = json_decode($d);
+                    $imgs = '';
+                    foreach ($arrayImg as $item) {
+                        $imgs .= '<img width="150" height="100" src='.$item.' style="object-fit:cover; margin:3px">';
+                    }
+                    return  $imgs;
+                }
+            ),
+            array( 'db' => 'tieude',  'dt' => 2),
+            array( 'db' => 'quanhuyen',  'dt' => 3 ),
+            array( 'db' => 'phuongxa',   'dt' => 4 ),
+            array( 'db' => 'dientich',  'dt' => 5 ),
+            array( 'db' => 'sotang',  'dt' => 6 ),
+            array( 'db' => 'gia',     'dt' => 7 ),
+            array( 'db' => 'locgia',     'dt' => 8 ),
+            array( 'db'        => 'id',
+                    'dt'        => 9,
+                    'formatter' => function( $d, $row ) {
+                        $linkDel = "'?ctrl=baiviet&act=delete&id=".$d."'";
+                        if($_SESSION['role'] === '0'){
+                            $buttonDel = '  <td><div  onclick="checkDelete('.$linkDel.')"  class="btn btn-danger" role="button"><i class="fa fa-trash"></i></div></td>';
+                        }
+                        return $buttonDel;
+                    }
+                ),
+            array( 'db'        => 'id',
+                    'dt'        => 10,
+                    'formatter' => function( $d, $row ) {
+                         $linkEdit = '?ctrl=baiviet&act=edit&id='.$d;
+                    
+                        if($_SESSION['role'] === '0' || $_SESSION['role'] === '1'){
+                            $buttonEdit = ' <td><a href=""><a name="" id="" class="btn btn-primary" href="'.$linkEdit.'" role="button"><span class="mdi mdi-pencil"></span></a></a></a></td>';
+                        }
+                        return $buttonEdit;
+                    }
+                ),
+         
+        );
+        
+        // SQL server connection information
+        $sql_details = array(
+            'user' => USER_DB,
+            'pass' => PASS_DB,
+            'db'   => NAME_DB,
+            'host' => HOST_DB
+        );
+        
+        
+        /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+        * If you just want to use the basic configuration for DataTables with PHP
+        * server-side, there is no need to edit below this line.
+        */
+        
+        
+        echo json_encode(
+            $this->ssp->simple( $_GET, $sql_details, $table, $primaryKey, $columns )
+        );
+        
+
+    }
+
+    function getXa()
+    {   
+        $Array = array();
+        $id = $_POST['id'];
+      
+        $xa = $this->model->GetXaByIdQuanHuyen($id);
+        $Array['xa'] = $xa;
+        echo json_encode($Array);
     }
 
     function index()
     {   
         $ProductList = $this->model-> GetAllProduct();
+        $GetProvince = $this->model->GetAllProvince();
         $page_title ="Danh sách tin bất động sản";
         $sub_title = "";
         $page_file = "views/baiviet_index.php";

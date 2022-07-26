@@ -258,12 +258,12 @@ $(document).ready(function () {
               let dientich = $( '#locdientich' ).val();
               let sotang = $( '#sotang' ).val();
               let gia = $("#gia").val();
-              let regexGia ='\\b(' + gia +')\\b(?<!-1)';
-              let regexDienTich ='\\b(' + dientich +')\\b(?<!-1)';
+              let regexGia ='\\b(' + gia +')\\b';
+              let regexDienTich ='\\b(' + dientich +')\\b';
               let regexQuanHuyen ='\\b(' + quanhuyen?.replace("quận ","") +')\\b';
             
               
-
+                
               that.column(1).search(tieude);
               if(quanhuyen == undefined){
                 that.column(2).search("");
@@ -275,12 +275,12 @@ $(document).ready(function () {
               if(gia == undefined){
                 that.column(7).search("");
               }else{
-                that.column(7).search(regexGia, true, false) .draw();
+                that.column(7).search(regexGia, true, false);
               }
               if(dientich == undefined){
                 that.column(8).search("");
               }else{
-                that.column(8).search(regexDienTich, true, false) .draw();
+                that.column(8).search(regexDienTich, true, false).draw();
               }
              
                 

@@ -223,8 +223,7 @@ $(document).ready(function () {
   $('#key-table').DataTable({
       processing: false,
       serverSide: false,
-   
-
+      
       ajax: $.fn.dataTable.pipeline({
           url: '?ctrl=baiviet&act=getapi',
           pages: 1000, // number of pages to cache
@@ -250,9 +249,9 @@ $(document).ready(function () {
         
   
           $("#filter").click(function (e) { 
-              
+            
               e.preventDefault();
-              
+            
               let tieude = $( '#tieude' ).val().toLowerCase();
               let quanhuyen = $( '#quanhuyen' ).find(':selected').attr('data-id')?.toLowerCase();
               let phuongxa = $( '#phuongxaajax' ).val();
@@ -262,30 +261,29 @@ $(document).ready(function () {
               let regexGia ='\\b(' + gia +')\\b';
               let regexDienTich ='\\b(' + dientich +')\\b';
               let regexQuanHuyen ='\\b(' + quanhuyen?.replace("quận ","") +')\\b';
+            
               
-              
-	      	
-              that.column(1).search(tieude)
+                
+              that.column(1).search(tieude);
               if(quanhuyen == undefined){
-		      that.column(2).search("");
+                that.column(2).search("");
               }else{
                 that.column(2).search( regexQuanHuyen, true, false );
               }
-               that.column(3).search(phuongxa);
-              that.column(5).search(sotang);
+              that.column(3).search(phuongxa);
+              that.column(5).search( sotang )
               if(gia == undefined){
-               that.column(7).search("").draw();
+                that.column(7).search("");
               }else{
-                that.column(7).search(regexGia,true, false);
+                that.column(7).search(regexGia, true, false);
               }
               if(dientich == undefined){
                 that.column(8).search("");
               }else{
                 that.column(8).search(regexDienTich, true, false).draw();
               }
-              
-              
-
+             
+                
           });
       
     

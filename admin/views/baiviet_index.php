@@ -13,7 +13,7 @@
                                     <div class="col-3">
                                         <a  class="btn btn-primary mb-2 hienloc" style="color:white" role="button">Lọc</a>
                                     </div>
-                                    <div class="row filter">
+                                    <div class="row filter pl-2 pr-2">
                                         <div class="col-lg-12 p-m-0">
                                             <h4 class="mt-0 ml-1 header-title"><?php echo $page_title; ?></h4>
                                             <p class="text-muted font-14 mb-3">

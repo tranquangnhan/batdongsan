@@ -74,7 +74,7 @@
                                                             $arrayRole = ["0"=>"admin","1"=>"subadmin","2"=>"Người Dùng"];
                                                     
                                                             foreach ($arrayRole as $key => $value) {
-                                                                echo '<option >'.$value.'</option>';
+                                                                echo '<option value="'.$key.'">'.$value.'</option>';
                                                             }
                                                             
                                                         ?>
@@ -96,8 +96,9 @@
                                           
 
                                         <div class="form-group text-right mb-0 mt-5">
+                                        <a href="?ctrl=users&act=index" clas="btn btn-secondary waves-effect waves-light">Huỷ</a>
                                             <input type="submit" name="them" class="btn btn-primary waves-effect waves-light mr-1" value="Sửa">
-                                           <a href="?ctrl=baiviet&act=index" clas="btn btn-secondary waves-effect waves-light">Huỷ</a>
+                                         
                                         </div>
 
                                     </form>

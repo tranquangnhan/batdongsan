@@ -103,7 +103,9 @@
                                                                 <th>Giá</th>
                                                                 <th style="display:none">Lọc Giá</th>
                                                                 <th style="display:none">Lọc Diện Tích</th>
-                                                                <?php 
+                                                                <th>Nguồn</th>
+                                                                <th width="5">Chi tiết </th>
+                                                               <?php 
                                                                     if($_SESSION['role'] === '0'){
                                                                         echo ' <th width="5">Xoá </th>';
                                                                     }
@@ -113,7 +115,6 @@
                                                                         echo ' <th width="5">Sửa </th>';
                                                                     }
                                                                 ?>
-                                                                
                                                             </tr>
                                                         </thead>
                                                         

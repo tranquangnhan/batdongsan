@@ -35,17 +35,11 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="">Hợp đồng thuê</label>
-                                          
-                                           
+                                            <label for="">Hợp đồng thuê / hình sổ</label>
                                            <input class="mt-2" type="file" name="hopdongthue[]" multiple>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="">Hợp đồng thuê</label>
-                                          
-                                           <input class="mt-2" type="file" name="hinhso[]" multiple>
-                                        </div>
+                                       
 
                                         <div class="row">
                                             <div class="col-lg-12">
@@ -86,15 +80,23 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="">Quận huyện</label>
-                                                    <input  type="text" name="quanhuyen"  value="" parsley-trigger="change" required
-                                                        placeholder="Nhập quận huyện" class="form-control" id="emailAddress">
+                                                    
+                                                    <select class="form-control" name="" id="quanhuyen">
+                                                        <option value="">Quận Huyện</option>
+                                                        <?php 
+                                                            foreach ( $GetProvince as $key => $value) {
+                                                            echo '<option data-id="'.$value['name_quanhuyen'].'" value='.$value['maqh'].'>'.$value['name_quanhuyen'].'</option>';
+                                                            }
+                                                        ?>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="">Phường xã</label>
-                                                    <input  type="text" name="phuongxa"  value="" parsley-trigger="change" required
-                                                        placeholder="Nhập phường xã" class="form-control" id="emailAddress">
+                                                    <select class="form-control" name="" id="phuongxaajax">
+                                                        <option value="" selected>Chọn Phường Xã</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -160,16 +162,7 @@
                                                         placeholder="Nhập số thuở" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
-                                            <div class="col-lg-4">
-                                                <div class="form-group">
-                                                    <label for="">Số phòng ngủ</label>
-                                                    <input  type="text" name="dat"  value="" parsley-trigger="change" required
-                                                        placeholder="Nhập số phòng ngủ" class="form-control" id="emailAddress">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                          
+                                             
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Số phòng ngủ </label>
@@ -177,6 +170,9 @@
                                                         placeholder="Nhập số phòng ngủ" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="row">
+                                         
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Số phòng vệ sinh</label>
@@ -191,6 +187,13 @@
                                                         placeholder="Nhập hướng" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
+                                            <div class="col-lg-4">
+                                              <div class="form-group">
+                                                  <label for="">Đường rộng</label>
+                                                  <input  type="number" name="duongrong"  value="" parsley-trigger="change" required
+                                                      placeholder="Nhập đường rộng" class="form-control" id="emailAddress">
+                                              </div>
+                                          </div>
                                         </div>
                                         <div class="row">
                                           
@@ -228,10 +231,18 @@
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
-                                                    <label for="">Pháp lý</label>
-                                                    <input  type="text" name="phaply"  value="" parsley-trigger="change" required
-                                                        placeholder="Nhập pháp lý" class="form-control" id="emailAddress">
-                                                </div>
+                                                        <label for="">Pháp lý</label>
+                                                        <select name="phaply" id="" class="form-control">
+                                                            <option value="">Pháp Lý</option>
+                                                            <?php
+                                                                $array = ["0"=>"Sổ hồng/ Sổ đỏ","1"=>"Hợp đồng mua bán / khác"];
+                                                                foreach ($array as $key => $value) {
+                                                                    echo "<option >".$value."</option>";
+                                                                }
+                                                            ?>
+
+                                                        </select>
+                                                    </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
@@ -292,13 +303,7 @@
                                                     </select>
                                               </div>
                                           </div>
-                                          <div class="col-lg-4">
-                                              <div class="form-group">
-                                                  <label for="">Đường rộng</label>
-                                                  <input  type="number" name="duongrong"  value="" parsley-trigger="change" required
-                                                      placeholder="Nhập đường rộng" class="form-control" id="emailAddress">
-                                              </div>
-                                          </div>
+                                        
                                        
                                       </div>
 

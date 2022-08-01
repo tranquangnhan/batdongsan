@@ -201,16 +201,27 @@ $(document).ready(function () {
   
  $('#quanhuyen').change(function (e) { 
     e.preventDefault();
-      
-      $.ajax({
+    getPhuongXa(e.target.value)
+  });   
+
+  function getPhuongXa(idQuanHuyen){
+    $.ajax({
         type: "POST",
         url: "?ctrl=baiviet&act=getxa",
-        data: {id:e.target.value},
+        data: {id:idQuanHuyen},
         dataType: "JSON",
         success: function (response) {
+            let phuongXaHidden = $("#phuongxahidden").val();
+            if(phuongXaHidden.split(" ")?.[1].length == 1){
+                phuongXaHidden = phuongXaHidden.split(" ")?.[0] + " " + "0"+phuongXaHidden.split(" ")?.[1];
+            }
+            console.log(phuongXaHidden)
             let res = '';
             res += `<option value="" selected>Chọn Phường Xã</option>`;
             res += response.xa?.reduce((kq,item)=>{
+                if(phuongXaHidden != '' && phuongXaHidden == item.name_xaphuong.toLowerCase().trim()){
+                    kq += `<option selected value="${item.name_xaphuong}">${item.name_xaphuong}</option>`;
+                }
                 kq += `<option value="${item.name_xaphuong}">${item.name_xaphuong}</option>`;
                 return kq;
             },'');
@@ -218,7 +229,17 @@ $(document).ready(function () {
             $("#phuongxaajax").html(res);
         }
       });
-  });   
+  }
+
+  //function thực hiện code khi đã có quận huyện   
+  ( ()=>{
+    if($("#quanhuyen").val() != ''){
+        getPhuongXa($("#quanhuyen").val())
+      }
+  })();
+ 
+
+
 
   $('#key-table').DataTable({
       processing: false,
@@ -282,7 +303,8 @@ $(document).ready(function () {
               }else{
                 that.column(8).search(regexDienTich, true, false).draw();
               }
-             
+              
+              
                 
           });
       
@@ -297,4 +319,9 @@ $(document).ready(function () {
         e.preventDefault();
         $(".filter").toggle();
     });
+
 });
+
+
+
+$('.carousel').carousel('pause')

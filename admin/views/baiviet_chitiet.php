@@ -263,11 +263,9 @@
                             </div>
                              
                             <div class="form-group text-right mb-0 mt-5">
-                                <a href="?ctrl=baiviet&act=index" clas="btn btn-primary waves-effect waves-light mr-1">Xong</a>
+                                <a href="?ctrl=baiviet&act=index" class="btn btn-primary waves-effect waves-light mr-1">Xong</a>
                             
                             </div>
-            
-
                         </form>
                     </div>
                 </div><!-- end col -->

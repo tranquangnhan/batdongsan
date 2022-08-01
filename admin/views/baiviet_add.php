@@ -183,8 +183,16 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Hướng</label>
-                                                    <input  type="text" name="huong"  value="" parsley-trigger="change" required
-                                                        placeholder="Nhập hướng" class="form-control" id="emailAddress">
+                                                    <select name="huong" id="" class="form-control">
+                                                            <option value="">Chọn Hướng</option>
+                                                            <?php
+                                                                $array = ["Đông","Tây","Nam","Bắc","Đông Bắc","Tây Bắc","Tây Nam","Đông Nam"];
+                                                                foreach ($array as $value) {
+                                                                    echo '<option value="'.$value.'">'.$value.'</option>';
+                                                                }
+                                                            ?>
+
+                                                        </select>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
@@ -212,11 +220,19 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
-                                                <div class="form-group">
-                                                    <label for="">Loại</label>
-                                                    <input  type="text" name="loai"  value="" parsley-trigger="change" required
-                                                        placeholder="Nhập loại" class="form-control" id="emailAddress">
-                                                </div>
+                                                    <div class="form-group">
+                                                        <label for="">Loại</label>
+                                                        <select name="loai" id="" class="form-control">
+                                                            <option value="">Chọn Loại</option>
+                                                            <?php
+                                                                $array = ["0"=>"Chung cư","1"=>"Hẻm","2"=>"Biệt thự","3"=>"Biệt thự","3"=>"Mặt tiền","4"=>"shophouse","5"=>"Đất nền dự án","6"=>"Đất","7"=>"Trang trại, khu nghĩ dưỡng","8"=>"Kho, nhà xưởng","9"=>"khác"];
+                                                                foreach ($array as $key => $value) {
+                                                                    echo "<option value='".$key."'>".$value."</option>";
+                                                                }
+                                                            ?>
+
+                                                        </select>
+                                                    </div>
                                             </div>
                                         </div>
 
@@ -237,7 +253,7 @@
                                                             <?php
                                                                 $array = ["0"=>"Sổ hồng/ Sổ đỏ","1"=>"Hợp đồng mua bán / khác"];
                                                                 foreach ($array as $key => $value) {
-                                                                    echo "<option >".$value."</option>";
+                                                                    echo "<option value='".$key."'>".$value."</option>";
                                                                 }
                                                             ?>
 
@@ -248,11 +264,11 @@
                                                 <div class="form-group">
                                                     <label for="">Nguồn</label>
                                                     <select name="nguon" id="" class="form-control">
-                                                        <option value=""></option>
+                                                        <option value="">Chọn nguồn</option>
                                                         <?php
                                                             $array = ["0"=>"Nhà Chính Chủ","1"=>"Chợ Tốt","2"=>"landlooking","3"=>"Ký gửi"];
                                                             foreach ($array as $key => $value) {
-                                                                echo "<option >".$value."</option>";
+                                                                echo "<option value='".$key."'>".$value."</option>";
                                                             }
                                                         ?>
 
@@ -314,8 +330,8 @@
                                           
 
                                         <div class="form-group text-right mb-0 mt-5">
+                                            <a href="?ctrl=baiviet&act=index" clas="btn btn-secondary waves-effect waves-light">Huỷ</a>
                                             <input type="submit" name="them" class="btn btn-primary waves-effect waves-light mr-1" value="Thêm">
-                                           <a href="?ctrl=baiviet&act=index" clas="btn btn-secondary waves-effect waves-light">Huỷ</a>
                                         </div>
 
                                     </form>

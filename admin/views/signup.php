@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Đăng nhập</title>
+        <title>Đăng ký</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -31,14 +31,14 @@
                                 <img src="../views/assets/images/logo-light.png" alt="" height="22" class="logo-light mx-auto">
                                <img src="../views/assets/images/logo-dark.png" alt="" height="22" class="logo-dark mx-auto">
                             </a>
-                            <p class="text-muted mt-2 mb-4">Đăng nhập vào để quản trị</p>
+                            <p class="text-muted mt-2 mb-4">Đăng ký vào để quản trị</p>
                         </div>
                         <div class="card">
 
                             <div class="card-body p-4">
                                 
                                 <div class="text-center mb-4">
-                                    <h4 class="text-uppercase mt-0">Đăng Nhập</h4>
+                                    <h4 class="text-uppercase mt-0">Đăng Ký</h4>
                                 </div>
 
                                 <form method="POST" id="formlogin">
@@ -51,15 +51,17 @@
                                     </div>
 
                                     <div class="form-group mb-3">
+                                        <label for="sdt">Sdt giới thiệu(nếu có)</label>
+                                        <input class="form-control" type="sdt" name="sdt" id="sdt" required  placeholder="Nhập sdt giới thiệu nếu có">
+                                       
+                                    </div>
+                                    <div class="form-group mb-3">
                                         <label for="password">Mật khẩu</label>
                                         <input class="form-control" type="password" name="password" required id="password" placeholder="Nhập mật khẩu">
                                     </div>
-
                                     <div class="form-group mb-3">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="checkbox-signin" checked>
-                                            <label class="custom-control-label" for="checkbox-signin">Nhớ tài khoản</label>
-                                        </div>
+                                        <label for="password">Nhập lại mật khẩu</label>
+                                        <input class="form-control" type="password" name="repassword" required id="repassword" placeholder="Nhập lại mật khẩu">
                                     </div>
 
                                     <div class="form-group mb-0 text-center">
@@ -74,7 +76,7 @@
 
                         <div class="row mt-3">
                             <div class="col-12 text-center">
-                                <p> <a href="?act=signup" class="text-dark ml-1"><i class="fa fa-lock mr-1"></i>Tạo tài khoản</a></p>
+                                <p> <a href="?act=login" class="text-dark ml-1"><i class="fa fa-lock mr-1"></i>Đăng nhập</a></p>
                             </div> <!-- end col -->
                         </div>
                         <!-- end row -->

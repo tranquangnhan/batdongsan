@@ -12,15 +12,15 @@ class Model_Tin extends Model_db{
     $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
     $hopdongthueImgs,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
     $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
-    $trangthainha,$duongrong,$hinhsoImgs,$ghichu)
+    $trangthainha,$duongrong,$ghichu)
     {
-        $sql = "INSERT INTO tin(tieude,img,mota,diachi,sdt,nguoidang,quanhuyen,phuongxa,gia,dientich,dientichcongnhan,rong,dai,sotang,soto,sothuo,sophongngu,sophongvesinh,hopdongthue,huong,ngaydang,ngaycapnhat,loai,kieuduong,phaply,nguon,kiemduyet,binhchonchinhchu,binhchonmoigioi,trangthainha,duongrong,hinhso,ghichu) VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO tin(tieude,img,mota,diachi,sdt,nguoidang,quanhuyen,phuongxa,gia,dientich,dientichcongnhan,rong,dai,sotang,soto,sothuo,sophongngu,sophongvesinh,hopdongthue,huong,ngaydang,ngaycapnhat,loai,kieuduong,phaply,nguon,kiemduyet,binhchonchinhchu,binhchonmoigioi,trangthainha,duongrong,ghichu) VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         return $this->getLastId($sql,
         $tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,$gia,$dientich,$dientichcongnhan,
         $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
         $hopdongthueImgs,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
         $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
-        $trangthainha,$duongrong,$hinhsoImgs,$ghichu);
+        $trangthainha,$duongrong,$ghichu);
     }
 
     function deleteTin($id)
@@ -35,34 +35,34 @@ class Model_Tin extends Model_db{
     $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
     $hopdongthue,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
     $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
-    $trangthainha,$duongrong,$hinhso,$ghichu
+    $trangthainha,$duongrong,$ghichu
     ,$id){
         if($img == "")
         {
             $sql = "UPDATE tin SET tieude= ?,mota=?,diachi=?,sdt=?,nguoidang=?,quanhuyen=?,phuongxa=?,";
             $sql .=" gia=?,dientich=?,dientichcongnhan=?,rong=?,dai=?,sotang=?,soto=?,sothuo=?,sophongngu=?,sophongvesinh=?,";
             $sql .=" hopdongthue=?,huong=?,ngaydang=?,ngaycapnhat=?,loai=?,kieuduong=?,phaply=?,nguon=?,kiemduyet=?,binhchonchinhchu=?,binhchonmoigioi=?,trangthainha=?,duongrong=?,";
-            $sql .=" hinhso=?,ghichu=? WHERE id=?";
+            $sql .=" ghichu=? WHERE id=?";
             return $this->SqlExecDebug($sql,
             $tieude,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,
             $gia,$dientich,$dientichcongnhan,
             $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
             $hopdongthue,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
             $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
-            $trangthainha,$duongrong,$hinhso,$ghichu,$id);
+            $trangthainha,$duongrong,$ghichu,$id);
         }else
         {
             $sql = "UPDATE tin SET tieude= ?,img=?,mota=?,diachi=?,sdt=?,nguoidang=?,quanhuyen=?,phuongxa=?,";
             $sql .=" gia=?,dientich=?,dientichcongnhan=?,rong=?,dai=?,sotang=?,soto=?,sothuo=?,sophongngu=?,sophongvesinh=?,";
             $sql .=" hopdongthue=?,huong=?,ngaydang=?,ngaycapnhat=?,loai=?,kieuduong=?,phaply=?,nguon=?,kiemduyet=?,binhchonchinhchu=?,binhchonmoigioi=?,trangthainha=?,duongrong=?,";
-            $sql .=" hinhso=?,ghichu=? WHERE id=?";
+            $sql .=" ghichu=? WHERE id=?";
             return $this->SqlExecDebug($sql,
             $tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,
             $gia,$dientich,$dientichcongnhan,
             $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
             $hopdongthue,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
             $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
-            $trangthainha,$duongrong,$hinhso,$ghichu,$id);
+            $trangthainha,$duongrong,$ghichu,$id);
         }
     }
 

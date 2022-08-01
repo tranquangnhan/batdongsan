@@ -74,7 +74,7 @@
 
                         <div class="row mt-3">
                             <div class="col-12 text-center">
-                                <p> <a href="pages-recoverpw.html" class="text-dark ml-1"><i class="fa fa-lock mr-1"></i>Quên mật khẩu?</a></p>
+                                <p> <a href="?act=signup" class="text-dark ml-1"><i class="fa fa-lock mr-1"></i>Tạo tài khoản</a></p>
                             </div> <!-- end col -->
                         </div>
                         <!-- end row -->

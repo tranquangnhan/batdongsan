@@ -17,6 +17,9 @@ class Login
                 $this->checkUser();
                
                 break;
+            case 'signup':
+                $this->signup();
+                break;
             case 'logout':
                 $this->logOut();
                 break; 
@@ -63,6 +66,39 @@ class Login
             unset($_SESSION['role']);
             header('location: login.php?act=login');
         }
+    }
+    function signup(){
+        if(isset($_POST['login'])&&($_POST['login']))
+        {
+            $user = $this->lib->stripTags($_POST['user']);
+            $sdt = $this->lib->stripTags($_POST['sdt']);
+            $pass = $this->lib->stripTags($_POST['password']);
+            $repass = $this->lib->stripTags($_POST['repassword']);
+
+            if($user == ""||$pass == "" || $repass == ""){
+                $_SESSION['error_taikhoan'] = "Vui lòng điền đầy đủ thông tin.";
+            }elseif($pass !== $repass){
+                $_SESSION['error_taikhoan'] = "Mật khẩu nhập lại không trùng khớp";
+            }elseif( $this->model->checkUserIsExit($user) >= 1){
+                $_SESSION['error_taikhoan'] = "Tài khoản đã tồn tại";
+            }
+            else
+            {
+                $taiKhoan = $this->model->signup($user,$pass,$sdt);
+                if($taiKhoan)
+                {
+                    $_SESSION['sid'] = $taiKhoan['idUser'];
+                    $_SESSION['suser'] = $taiKhoan['Username'];
+                    $_SESSION['role'] = $taiKhoan['VaiTro'];
+                    header("location: ".ROOT_URL."/admin.php");
+                }else{
+
+                    header('location: login.php?act=signup');
+                }
+            }
+    
+        }
+        require_once "../views/signup.php";
     }
 }
 new Login;

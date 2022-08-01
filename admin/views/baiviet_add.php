@@ -311,7 +311,7 @@
                                                             $array = ["0"=>"Đã bán","1"=>"Chưa bán","2"=>"Đã cho thuê","3"=>"Chưa cho thuê"];
                                                             foreach ($array as $key => $value) {
                                                                
-                                                                    echo "<option >".$value."</option>";
+                                                                    echo "<option value='".$key."'>".$value."</option>";
                                                             
                                                             }
                                                         ?>

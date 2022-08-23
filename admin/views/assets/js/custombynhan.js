@@ -142,7 +142,7 @@ $.fn.dataTable.pipeline = function (opts) {
               // As an object, the data given extends the default
               $.extend(request, conf.data);
           }
-
+          console.log(request)
           return $.ajax({
               type: conf.method,
               url: conf.url,
@@ -150,7 +150,7 @@ $.fn.dataTable.pipeline = function (opts) {
               dataType: 'json',
               cache: false,
               success: function (json) {
-                  
+                  console.log(json)
                   cacheLastJson = $.extend(true, {}, json);
 
                   if (cacheLower != drawStart) {
@@ -201,7 +201,7 @@ $(document).ready(function () {
   
  $('#quanhuyen').change(function (e) { 
     e.preventDefault();
-    getPhuongXa(e.target.value)
+    getPhuongXa($('#quanhuyen').find(":selected").attr('data-id'))
   });   
 
   function getPhuongXa(idQuanHuyen){
@@ -212,10 +212,10 @@ $(document).ready(function () {
         dataType: "JSON",
         success: function (response) {
             let phuongXaHidden = $("#phuongxahidden").val();
-            if(phuongXaHidden.split(" ")?.[1].length == 1){
+            if(phuongXaHidden?.split(" ")?.[1]?.length == 1){
                 phuongXaHidden = phuongXaHidden.split(" ")?.[0] + " " + "0"+phuongXaHidden.split(" ")?.[1];
             }
-            console.log(phuongXaHidden)
+            console.log(response)
             let res = '';
             res += `<option value="" selected>Chọn Phường Xã</option>`;
             res += response.xa?.reduce((kq,item)=>{
@@ -239,16 +239,15 @@ $(document).ready(function () {
   })();
  
 
-
+  
+ 
 
   $('#key-table').DataTable({
-      processing: false,
-      serverSide: false,
-      
+      processing: true,
+      serverSide: true,
       ajax: $.fn.dataTable.pipeline({
           url: '?ctrl=baiviet&act=getapi',
-          pages: 1000, // number of pages to cache
-        
+          pages: 1000, // number of pages to cache,
       }),
       "language": {
           "lengthMenu": "_MENU_",
@@ -267,44 +266,54 @@ $(document).ready(function () {
       initComplete: function () {
           // Apply the search
           var that = this.api();
-        
+            
   
           $("#filter").click(function (e) { 
-            
               e.preventDefault();
-            
+             
               let tieude = $( '#tieude' ).val().toLowerCase();
-              let quanhuyen = $( '#quanhuyen' ).find(':selected').attr('data-id')?.toLowerCase();
+              let quanhuyen = $( '#quanhuyen' ).val();
               let phuongxa = $( '#phuongxaajax' ).val();
               let dientich = $( '#locdientich' ).val();
               let sotang = $( '#sotang' ).val();
+              let nguon = $( '#nguon' ).val();
               let gia = $("#gia").val();
               let regexGia ='\\b(' + gia +')\\b';
-              let regexDienTich ='\\b(' + dientich +')\\b';
-              let regexQuanHuyen ='\\b(' + quanhuyen?.replace("quận ","") +')\\b';
-            
+              let regexDienTich =''+dientich+'';
+              let regexQuanHuyen ='\\b(' + quanhuyen +')\\b';
+              let regexPhuongXa ='\\b(' + phuongxa +')\\b';
               
                 
-              that.column(1).search(tieude);
-              if(quanhuyen == undefined){
-                that.column(2).search("");
+              that.column(1).search(tieude)
+              if(!quanhuyen){
+                that.column(2).search("")
               }else{
-                that.column(2).search( regexQuanHuyen, true, false );
+                that.column(2).search( regexQuanHuyen, true, true )
               }
-              that.column(3).search(phuongxa);
+              
+              if(!phuongxa){
+                that.column(3).search("")
+              }else{
+               
+                that.column(3).search(regexPhuongXa, true, false )
+              }
+
               that.column(5).search( sotang )
-              if(gia == undefined){
-                that.column(7).search("");
+         
+              if(gia == ""){
+                that.column(7).search("")
               }else{
-                that.column(7).search(regexGia, true, false);
+                that.column(7).search(regexGia, true, false)
               }
-              if(dientich == undefined){
-                that.column(8).search("");
-              }else{
-                that.column(8).search(regexDienTich, true, false).draw();
-              }
-              
-              
+   
+
+            if(dientich == ""){
+                that.column(8).search("")
+            }else{
+                that.column(8).search(regexDienTich,true,false)
+            }
+            that.column(9).search(nguon, false, false).draw();
+            
                 
           });
       
@@ -314,16 +323,17 @@ $(document).ready(function () {
   });
 });
 
+
+
+
 $(document).ready(function () {
     $(".hienloc").click(function (e) { 
         e.preventDefault();
         $(".filter").toggle();
     });
-});
 
 });
 
 
 
 $('.carousel').carousel('pause')
-

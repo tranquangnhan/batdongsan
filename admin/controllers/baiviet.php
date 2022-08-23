@@ -321,7 +321,9 @@ class BaiViet{
         $hopdongthueImgs,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
         $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
         $trangthainha,$duongrong,$ghichu);
-        if($idLastBaiViet != null)
+	print_r($idLastBaiViet);
+	exit();
+	if($idLastBaiViet != null)
         {
             echo "<script>alert('Thêm thành công')</script>";
             header("location: ?ctrl=baiviet&act=index");

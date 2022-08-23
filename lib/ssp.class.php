@@ -200,12 +200,18 @@ class SSP {
 				$column = $columns[ $columnIdx ];
 
 				$str = $requestColumn['search']['value'];
-
-				if ( $requestColumn['searchable'] == 'true' &&
-				 $str != '' ) {
+				$searchRegex = $requestColumn['search']['regex'];
+				
+				if ( $requestColumn['searchable'] == 'true' && $str != '' ) {
 					if(!empty($column['db'])){
-						$binding = self::bind( $bindings, '%'.$str.'%', PDO::PARAM_STR );
-						$columnSearch[] = "`".$column['db']."` LIKE ".$binding;
+						if($searchRegex == 'true'){
+							$binding = self::bind( $bindings, ''.$str.'', PDO::PARAM_STR );
+							$columnSearch[] = "`".$column['db']."` REGEXP  ".$binding;
+						}else{
+							$binding = self::bind( $bindings, '%'.$str.'%', PDO::PARAM_STR );
+							$columnSearch[] = "`".$column['db']."` LIKE ".$binding;
+						}
+						
 					}
 				}
 			}
@@ -289,7 +295,15 @@ class SSP {
 				0,
 			"recordsTotal"    => intval( $recordsTotal ),
 			"recordsFiltered" => intval( $recordsFiltered ),
-			"data"            => self::data_output( $columns, $data )
+			"data"            => self::data_output( $columns, $data ),
+			"sql"			  =>"SELECT `".implode("`, `", self::pluck($columns, 'db'))."`
+			FROM `$table`
+			$where
+			$order
+			$limit",
+			"binding"         =>$bindings,
+			"request"         =>$request,
+			"where"           =>$where
 		);
 	}
 
@@ -362,8 +376,6 @@ class SSP {
 			 FROM   `$table`
 			 $where"
 		);
-		// print_r($where);
-		// exit();
 		$recordsFiltered = $resFilterLength[0][0];
 
 		// Total data set length
@@ -402,16 +414,12 @@ class SSP {
 	static function sql_connect ( $sql_details )
 	{
 		try {
-
-			$ConnectionOption = array
-			(
-				PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'",
-				PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+			$db = @new PDO(
+				"mysql:host={$sql_details['host']};dbname={$sql_details['db']}",
+				$sql_details['user'],
+				$sql_details['pass'],
+				array( PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION )
 			);
-
-			$conn = new PDO ('mysql:host='.$sql_details['host'].';dbname='.$sql_details['db'].';charset=utf8', $sql_details['user'], $sql_details['pass'], $ConnectionOption);
-
-			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		}
 		catch (PDOException $e) {
 			self::fatal(
@@ -420,7 +428,7 @@ class SSP {
 			);
 		}
 
-		return $conn;
+		return $db;
 	}
 
 

@@ -104,14 +104,14 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="">Quận huyện</label>
-                                                    <select class="form-control" name="" id="quanhuyen">
+                                                    <select class="form-control" name="quanhuyen" id="quanhuyen">
                                                         <option value="">Quận Huyện</option>
                                                         <?php 
                                                             foreach ( $GetProvince as $key => $value) {
                                                                 if(strtolower($value['name_quanhuyen']) == strtolower(trim($oneRecode['quanhuyen']))){
-                                                                    echo '<option selected data-id="'.$value['name_quanhuyen'].'" value='.$value['maqh'].'>'.$value['name_quanhuyen'].'</option>';
+                                                                    echo '<option selected data-id="'.$value['maqh'].'" value="'.$value['name_quanhuyen'].'">'.$value['name_quanhuyen'].'</option>';
                                                                 }else{
-                                                                    echo '<option  data-id="'.$value['name_quanhuyen'].'" value='.$value['maqh'].'>'.$value['name_quanhuyen'].'</option>';
+                                                                    echo '<option  data-id="'.$value['maqh'].'" value="'.$value['name_quanhuyen'].'">'.$value['name_quanhuyen'].'</option>';
                                                                 }
                                                           
                                                             }
@@ -123,7 +123,7 @@
                                                 <div class="form-group">
                                                     <label for="">Phường xã</label>
                                                     <input type="hidden" id="phuongxahidden" value="<?=strtolower(trim($oneRecode['phuongxa']))?>">
-                                                    <select class="form-control" name="" id="phuongxaajax">
+                                                    <select class="form-control" name="phuongxa" id="phuongxaajax">
                                                         <option value="" selected>Chọn Phường Xã</option>
                                                     </select>              
                                                 </div>

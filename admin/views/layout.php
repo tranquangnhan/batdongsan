@@ -321,9 +321,10 @@
     <script src="views/assets/js/pages/dashboard.init.js"></script>
 
     
-
-    <script src="views/assets/js/pages/datatables.init.js"></script>
+    <!-- <script src="views/assets/js/pages/datatables.init.js"></script> -->
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="views/assets/libs/datatables/jquery.dataTables.min.js"></script>
+    
     <script src="views/assets/libs/datatables/dataTables.bootstrap4.js"></script>
     <script src="views/assets/libs/datatables/dataTables.responsive.min.js"></script>
     <script src="views/assets/libs/datatables/responsive.bootstrap4.min.js"></script>

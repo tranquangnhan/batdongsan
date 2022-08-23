@@ -32,7 +32,7 @@
                                                     <option value="">Quận Huyện</option>
                                                     <?php 
                                                         foreach ( $GetProvince as $key => $value) {
-                                                           echo '<option data-id="'.$value['name_quanhuyen'].'" value='.$value['maqh'].'>'.$value['name_quanhuyen'].'</option>';
+                                                           echo '<option data-id="'.$value['maqh'].'" value="'.$value['name_quanhuyen'].'">'.$value['name_quanhuyen'].'</option>';
                                                         }
                                                     ?>
                                                   </select>
@@ -54,7 +54,7 @@
                                                         <option value="">Lọc diện tích</option>
                                                         <?php 
                                                             foreach ($arrDienTich as $key => $value) {
-                                                            echo '<option value='.$key.'>'.$value.'</option>';
+                                                            echo '<option value="'.$key.'">'.$value.'</option>';
                                                             }
                                                         ?>
                                                     </select>
@@ -84,6 +84,22 @@
 
                                                 <a  id="filter" class="btn btn-primary" style="color:white" role="button">LỌC</a>
                                             </div> <!-- /fillter -->
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <div class="form-group">
+                                                    <label for="">Nguồn</label>
+                                                    <?php
+                                                        $arrDienTich = ["Nhà chính chủ","Nhà bán sg","Landlooking","Chợ tốt"];
+                                                    ?>
+                                                    <select class="form-control" name="" id="nguon">
+                                                        <option value="">Chọn nguồn</option>
+                                                        <?php 
+                                                            foreach ($arrDienTich as $key => $value) {
+                                                            echo '<option value="'.$key.'">'.$value.'</option>';
+                                                            }
+                                                        ?>
+                                                    </select>
+                                                    </div>
                                         </div>
                                        
                                     </div>

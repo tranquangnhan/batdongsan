@@ -85,7 +85,7 @@
                                                         <option value="">Quận Huyện</option>
                                                         <?php 
                                                             foreach ( $GetProvince as $key => $value) {
-                                                            echo '<option data-id="'.$value['name_quanhuyen'].'" value='.$value['maqh'].'>'.$value['name_quanhuyen'].'</option>';
+                                                            echo '<option data-id="'.$value['maqh'].'" value="'.$value['maqh'].'">'.$value['name_quanhuyen'].'</option>';
                                                             }
                                                         ?>
                                                     </select>

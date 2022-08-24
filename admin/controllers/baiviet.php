@@ -247,6 +247,7 @@ class BaiViet{
             $loai = $_POST['loai'];
             $kieuduong = $_POST['kieuduong'];
             $phaply = $_POST['phaply'];
+          
             $nguon = $_POST['nguon'];
             $kiemduyet = ($_POST['kiemduyet'] =='on') ? 1 : 0;
             $binhchonchinhchu = $_POST['binhchonchinhchu'];

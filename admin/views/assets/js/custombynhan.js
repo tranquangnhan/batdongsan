@@ -279,7 +279,7 @@ $(document).ready(function () {
               let nguon = $( '#nguon' ).val();
               let gia = $("#gia").val();
               let regexGia ='\\b(' + gia +')\\b';
-              let regexDienTich =''+dientich+'';
+              let regexDienTich ='\\b(' + dientich +')\\b';
               let regexQuanHuyen ='\\b(' + quanhuyen +')\\b';
               let regexPhuongXa ='\\b(' + phuongxa +')\\b';
               

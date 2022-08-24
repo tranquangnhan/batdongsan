@@ -254,6 +254,8 @@ class BaiViet{
             $trangthainha = $_POST['trangthainha'];
             $duongrong = $_POST['duongrong'];
             $ghichu = $_POST['ghichu'];
+         
+	   
 
 
 

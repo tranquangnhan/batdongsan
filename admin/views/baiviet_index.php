@@ -82,7 +82,7 @@
                                                   </select>
                                                 </div>
 
-                                                <a  id="filter" class="btn btn-primary" style="color:white" role="button">LỌC</a>
+                                              
                                             </div> <!-- /fillter -->
                                         </div>
                                         <div class="col-lg-2">
@@ -101,7 +101,9 @@
                                                     </select>
                                                     </div>
                                         </div>
-                                       
+                                        <div class="col-lg-2 mt-3 pt-1">
+                                             <a  id="filter" class="btn btn-primary ml-2" style="color:white" role="button">Lọc Bài Viết</a>
+                                        </div>
                                     </div>
                                     <br>
                                     <div class="responsive-table-plugin">
@@ -121,16 +123,18 @@
                                                                 <th style="display:none">Lọc Diện Tích</th>
                                                                 <th>Nguồn</th>
                                                                 <th width="5">Chi tiết </th>
+
                                                                <?php 
                                                                     if($_SESSION['role'] === '0'){
                                                                         echo ' <th width="5">Xoá </th>';
                                                                     }
                                                                 ?>
-                                                            <?php 
+                                                                <?php 
                                                                     if($_SESSION['role'] === '0' || $_SESSION['role'] === '1' ){
                                                                         echo ' <th width="5">Sửa </th>';
                                                                     }
                                                                 ?>
+                                                                  <th style="display:none">id</th>
                                                             </tr>
                                                         </thead>
                                                         

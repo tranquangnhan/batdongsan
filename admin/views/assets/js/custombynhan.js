@@ -1,69 +1,5 @@
 
 
-// $(document).ready(function () {
-   
- 
-//     var table = $('#key-table').DataTable(
-//         {
-//             "language": {
-//                 "lengthMenu": "_MENU_",
-//                 "zeroRecords": "Không có dữ liệu",
-//                 "info": "Xem trang _PAGE_ / tổng _PAGES_",
-//                 "infoEmpty": "Không có dữ liệu",
-//                 "infoFiltered": "(filtered from _MAX_ total records)",
-//                 "search": "Tìm Kiếm",
-//                 "paginate": {
-//                     "first": "Trang Đầu",
-//                     "last": "Trang Cuối",
-//                     "next": "Trang Sau",
-//                     "previous": "Trang Trước"
-//                 },
-//             },
-//             "ordering": false,
-//             initComplete: function () {
-//                 // Apply the search
-//                 var that = this.api();
-//                 $("#filter").click(function (e) { 
-//                     e.preventDefault();
-                 
-//                     let quanhuyen = $( '#quanhuyen' ).val();
-//                     let phuongxa = $( '#phuongxa' ).val();
-//                     filterColumn(quanhuyen,phuongxa);
-
-//                 });
-//                 function filterColumn( value, value1 ) {
-//                     that.column(3).search( value );
-//                     that.column(4).search( value1 ).draw()
-                  
-
-//                     $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
-//                         let left = parseInt($( '#left' ).val());
-//                         let right = parseInt($( '#right' ).val());
-                       
-//                         let gia = 0;
-//                         if(data[7].includes("tỷ")){
-//                             gia = data[7].split(" ")[0];
-//                         }
-//                         return gia > left && gia < right ? true : false;
-//                     });
-                  
-//                 }
-//                 // that.search( this.value ).draw();
-//                 // console.log(this.value)
-//                 // this.api().columns().every( function () {
-                  
-               
-//                 // } );
-//             }
-//         },
-       
-//     );
-// });
-
-
-
-
-
 // Pipelining function for DataTables. To be used to the `ajax` option of DataTables
 
 $.fn.dataTable.pipeline = function (opts) {
@@ -198,7 +134,7 @@ $.fn.dataTable.pipeline = function (opts) {
 // DataTables initialisation
 //
 $(document).ready(function () {
-  
+ 
  $('#quanhuyen').change(function (e) { 
     e.preventDefault();
     getPhuongXa($('#quanhuyen').find(":selected").attr('data-id'))
@@ -215,6 +151,7 @@ $(document).ready(function () {
             if(phuongXaHidden?.split(" ")?.[1]?.length == 1){
                 phuongXaHidden = phuongXaHidden.split(" ")?.[0] + " " + "0"+phuongXaHidden.split(" ")?.[1];
             }
+            console.log('xa');
             console.log(response)
             let res = '';
             res += `<option value="" selected>Chọn Phường Xã</option>`;
@@ -233,8 +170,8 @@ $(document).ready(function () {
 
   //function thực hiện code khi đã có quận huyện   
   ( ()=>{
-    if($("#quanhuyen").val() != ''){
-        getPhuongXa($("#quanhuyen").val())
+    if($("#quanhuyen").find(":selected").attr('data-id') != ''){
+        getPhuongXa($("#quanhuyen").find(":selected").attr('data-id'))
       }
   })();
  

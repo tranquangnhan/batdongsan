@@ -25,14 +25,16 @@ class lib{
             }
             else{
                 $uploadfile = 'upload file không thành công';
-            }
+	    }
+	    
             $nameImg = $pathimg.$nameimg[$i];
             array_push($imgupload,$nameImg);
         }
     
         if( $allFile['name'][0] == ""){
             return null;
-        }
+	}
+	
         return  json_encode($imgupload);
     }
     function forMatTien($num){

@@ -152,7 +152,7 @@ $(document).ready(function () {
             let res = '';
             res += `<option value="" selected>Chọn Phường Xã</option>`;
             res += response.xa?.reduce((kq,item)=>{
-                if(phuongXaHidden != '' && phuongXaHidden.toLowerCase().trim() == item.name_xaphuong.toLowerCase().trim()){
+                if(phuongXaHidden != '' && phuongXaHidden?.toLowerCase()?.trim() == item?.name_xaphuong?.toLowerCase()?.trim()){
                     kq += `<option selected value="${item.name_xaphuong}">${item.name_xaphuong}</option>`;
                 }
                 kq += `<option value="${item.name_xaphuong}">${item.name_xaphuong}</option>`;
@@ -162,7 +162,7 @@ $(document).ready(function () {
             $("#phuongxaajax").html(res);
         }
       });
-  }
+    }
 
   //function thực hiện code khi đã có quận huyện   
   ( ()=>{

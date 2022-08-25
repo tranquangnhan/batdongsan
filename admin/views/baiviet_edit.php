@@ -157,14 +157,14 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Rộng</label>
-                                                    <input  type="text" name="number"  value="<?=$oneRecode['rong']?>" parsley-trigger="change" required
+                                                    <input  type="number" name="rong"  value="<?=$oneRecode['rong']?>" parsley-trigger="change" required
                                                         placeholder="Nhập chiều rộng" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Dài</label>
-                                                    <input  type="text" name="number"  value="<?=$oneRecode['dai']?>" parsley-trigger="change" required
+                                                    <input  type="number" name="dai"  value="<?=$oneRecode['dai']?>" parsley-trigger="change" required
                                                         placeholder="Nhập chiều dài" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>

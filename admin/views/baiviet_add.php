@@ -128,14 +128,14 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Rộng</label>
-                                                    <input  type="text" name="number"  value="" parsley-trigger="change" 
+                                                    <input  type="number" name="rong"  value="" parsley-trigger="change" 
                                                         placeholder="Nhập chiều rộng" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Dài</label>
-                                                    <input  type="text" name="number"  value="" parsley-trigger="change" 
+                                                    <input  type="number" name="dai"  value="" parsley-trigger="change" 
                                                         placeholder="Nhập chiều dài" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>

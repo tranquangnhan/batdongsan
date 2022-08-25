@@ -148,15 +148,11 @@ $(document).ready(function () {
         dataType: "JSON",
         success: function (response) {
             let phuongXaHidden = $("#phuongxahidden").val();
-            if(phuongXaHidden?.split(" ")?.[1]?.length == 1){
-                phuongXaHidden = phuongXaHidden.split(" ")?.[0] + " " + "0"+phuongXaHidden.split(" ")?.[1];
-            }
-            console.log('xa');
-            console.log(response)
+
             let res = '';
             res += `<option value="" selected>Chọn Phường Xã</option>`;
             res += response.xa?.reduce((kq,item)=>{
-                if(phuongXaHidden != '' && phuongXaHidden == item.name_xaphuong.toLowerCase().trim()){
+                if(phuongXaHidden != '' && phuongXaHidden.toLowerCase().trim() == item.name_xaphuong.toLowerCase().trim()){
                     kq += `<option selected value="${item.name_xaphuong}">${item.name_xaphuong}</option>`;
                 }
                 kq += `<option value="${item.name_xaphuong}">${item.name_xaphuong}</option>`;

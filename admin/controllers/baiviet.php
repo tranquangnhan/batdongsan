@@ -146,6 +146,7 @@ class BaiViet{
                         return $buttonEdit;
                     }
                 ),
+            array( 'db' => 'id', 'dt' => 13 ),
          
         );
         
@@ -231,6 +232,7 @@ class BaiViet{
             $nguoidang = $_POST['nguoidang'];
             $quanhuyen = $_POST['quanhuyen'];
             $phuongxa = $_POST['phuongxa'];
+           
             $gia = $_POST['gia'];
             $dientich = $_POST['dientich'];
             $dientichcongnhan = $_POST['dientichcongnhan'];
@@ -324,8 +326,7 @@ class BaiViet{
         $hopdongthueImgs,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
         $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
         $trangthainha,$duongrong,$ghichu);
-	print_r($idLastBaiViet);
-	exit();
+
 	if($idLastBaiViet != null)
         {
             echo "<script>alert('Thêm thành công')</script>";

@@ -198,7 +198,12 @@ class Model_Tin extends Model_db{
     }
 
     function countPhone($phone){
-        $sql = "SELECT count(*) as countsdt FROM tin WHERE sdt = ?";
+        $sql = "SELECT count(*) as countsdt,id,tieude FROM tin WHERE sdt = ?";
         return $this->result1(1,$sql,$phone)['countsdt'];
+    }
+
+    function getTinByPhone($phone){
+        $sql = "SELECT  id,tieude FROM tin WHERE sdt = ?";
+        return $this->result1(0,$sql,$phone);
     }
 }

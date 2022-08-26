@@ -80,13 +80,22 @@
                                 <div class="col-lg-6">
                                     <h5 class="font-600 ">Điện thoại</h5>
                                     <p class="text-muted mb-0"><?=$oneRecode['sdt']?></p>
-                                    <?php
-                                                    if($checkPhone>1){
-                                                        echo '<span class="badge badge-danger badge-pill">Sdt có thể là môi giới, có '.$checkPhone.' bài viết dùng sdt này</span>';
-                                                    }else{
-                                                        echo '<span class="badge badge-success badge-pill"> Có '.$checkPhone.' bài viết dùng sdt này</span>';
-                                                    }
-                                                ?>
+                                         <?php
+                                            if($checkPhone>1){
+                                                echo '<span class="badge badge-danger badge-pill">Sdt có thể là môi giới, có '.$checkPhone.' bài viết dùng sdt này</span>';
+                                            }else{
+                                                echo '<span class="badge badge-success badge-pill"> Có '.$checkPhone.' bài viết dùng sdt này</span>';
+                                            }
+                                        ?>
+                                        <br>
+                                        <label for="">Link bài trùng</label><br>
+                                        <?php
+                                            if(isset($tinByPhone) && count($tinByPhone)>0){
+                                                foreach ($tinByPhone as  $value) {
+                                                    echo '<span style="font-size:9pt"><a href="index.php?ctrl=baiviet&act=detail&id='.$value['id'].'">'.$value['tieude'].'</a></span>';
+                                                }
+                                            }
+                                        ?>
                                 </div>
                                 <div class="col-lg-6">
                                     <h5 class="font-600 m-b-5">Người đăng</h5>

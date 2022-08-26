@@ -88,11 +88,12 @@
                                             }
                                         ?>
                                         <br>
-                                        <label for="">Link bài trùng</label><br>
+                                       
                                         <?php
                                             if(isset($tinByPhone) && count($tinByPhone)>0){
+                                                echo '<label for="">Link bài trùng</label><br>';
                                                 foreach ($tinByPhone as  $value) {
-                                                    echo '<span style="font-size:9pt"><a href="index.php?ctrl=baiviet&act=detail&id='.$value['id'].'">'.$value['tieude'].'</a></span>';
+                                                    echo '<span style="font-size:9pt"><a href="index.php?ctrl=baiviet&act=detail&id='.$value['id'].'">'.$value['tieude'].'</a></span><br>';
                                                 }
                                             }
                                         ?>

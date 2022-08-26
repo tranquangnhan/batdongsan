@@ -34,7 +34,7 @@
                                             <?php
                                                $imgs = json_decode($oneRecode['img']);
                                                foreach ($imgs as $row) {
-                                                   echo '<img width="200" style="object-fit: cover; margin-right:15px; border-radius:3px;" height="200" src="'.$row.'" alt="">';
+                                                   echo '<img width="200" style="object-fit: cover; margin-right:10px;margin-top:10px; border-radius:3px;" height="200" src="'.$row.'" alt="">';
                                                }
                                             ?>
                                             <br>
@@ -88,6 +88,14 @@
                                                                 echo '<span class="badge badge-danger badge-pill">Sdt có thể là môi giới, có '.$checkPhone.' bài viết dùng sdt này</span>';
                                                             }else{
                                                                 echo '<span class="badge badge-success badge-pill"> Có '.$checkPhone.' bài viết dùng sdt này</span>';
+                                                            }
+                                                        ?><br>
+                                                        <label for="">Link bài trùng</label><br>
+                                                        <?php
+                                                            if(isset($tinByPhone) && count($tinByPhone)>0){
+                                                                foreach ($tinByPhone as  $value) {
+                                                                    echo '<span style="font-size:9pt"><a href="index.php?ctrl=baiviet&act=detail&id='.$value['id'].'">'.$value['tieude'].'</a></span>';
+                                                                }
                                                             }
                                                         ?>
                                                 </div>

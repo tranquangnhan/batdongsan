@@ -194,6 +194,9 @@ class BaiViet{
     function detail(){
         $oneRecode = $this->model->showOneTin($_GET['id']);
         $checkPhone = $this->model->countPhone($oneRecode['sdt']);
+        if($checkPhone>1){
+            $tinByPhone = $this->model->getTinByPhone($oneRecode['sdt']);
+        }
         $page_title ="Chi tiết tin";
         $page_file = "views/baiviet_chitiet.php";
         require_once "views/layout.php";
@@ -207,6 +210,9 @@ class BaiViet{
         if(isset($_GET['id'])&&($_GET['act']='dienthoai')){
             $oneRecode = $this->model->showOneTin($_GET['id']);
             $checkPhone = $this->model->countPhone($oneRecode['sdt']);
+            if($checkPhone>1){
+                $tinByPhone = $this->model->getTinByPhone($oneRecode['sdt']);
+            }
             $page_title ="Sửa Điện Thoại";
             $page_file = "views/baiviet_edit.php";
         }else{

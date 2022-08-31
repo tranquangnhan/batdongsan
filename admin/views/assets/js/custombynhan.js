@@ -226,6 +226,7 @@ $(document).ready(function () {
               let tieude = $( '#tieude' ).val().toLowerCase();
               let quanhuyen = $( '#quanhuyen' ).val();
               let phuongxa = $( '#phuongxaajax' ).val();
+              let duong = $( '#duongajax' ).val();
               let dientich = $( '#locdientich' ).val();
               let sotang = $( '#sotang' ).val();
               let nguon = $( '#nguon' ).val();
@@ -234,6 +235,7 @@ $(document).ready(function () {
               let regexDienTich ='\\b(' + dientich +')\\b';
               let regexQuanHuyen ='\\b(' + quanhuyen +')\\b';
               let regexPhuongXa ='\\b(' + phuongxa +')\\b';
+              let regexDuong ='\\b(' + duong +')\\b';
               
                 
               that.column(1).search(tieude)
@@ -249,6 +251,12 @@ $(document).ready(function () {
                
                 that.column(3).search(regexPhuongXa, true, false )
               }
+              if(!duong){
+                that.column(4).search("")
+              }else{
+                that.column(4).search(regexDuong, true, false )
+              }
+
 
               that.column(6).search( sotang )
          

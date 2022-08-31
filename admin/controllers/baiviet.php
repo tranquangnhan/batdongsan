@@ -211,7 +211,7 @@ class BaiViet{
             $oneRecode = $this->model->showOneTin($_GET['id']);
             $checkPhone = $this->model->countPhone($oneRecode['sdt']);
             if($checkPhone>1){
-                $tinByPhone = $this->model->getTinByPhone($oneRecode['sdt']);
+	 	 $tinByPhone = $this->model->getTinByPhone($oneRecode['sdt']); 
             }
             $page_title ="Sửa Điện Thoại";
             $page_file = "views/baiviet_edit.php";

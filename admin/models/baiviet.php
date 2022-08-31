@@ -8,15 +8,15 @@ class Model_Tin extends Model_db{
     }
     
     function addNewTin(
-    $tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,$gia,$dientich,$dientichcongnhan,
+    $tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,$duong,$gia,$dientich,$dientichcongnhan,
     $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
     $hopdongthueImgs,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
     $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
     $trangthainha,$duongrong,$ghichu)
     {
-        $sql = "INSERT INTO tin(tieude,img,mota,diachi,sdt,nguoidang,quanhuyen,phuongxa,gia,dientich,dientichcongnhan,rong,dai,sotang,soto,sothuo,sophongngu,sophongvesinh,hopdongthue,huong,ngaydang,ngaycapnhat,loai,kieuduong,phaply,nguon,kiemduyet,binhchonchinhchu,binhchonmoigioi,trangthainha,duongrong,ghichu) VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO tin(tieude,img,mota,diachi,sdt,nguoidang,quanhuyen,phuongxa,duong,gia,dientich,dientichcongnhan,rong,dai,sotang,soto,sothuo,sophongngu,sophongvesinh,hopdongthue,huong,ngaydang,ngaycapnhat,loai,kieuduong,phaply,nguon,kiemduyet,binhchonchinhchu,binhchonmoigioi,trangthainha,duongrong,ghichu) VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         return $this->getLastId($sql,
-        $tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,$gia,$dientich,$dientichcongnhan,
+        $tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,$duong,$gia,$dientich,$dientichcongnhan,
         $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
         $hopdongthueImgs,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
         $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
@@ -30,7 +30,7 @@ class Model_Tin extends Model_db{
     }
 
     function editTin(
-    $tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,
+    $tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,$duong,
     $gia,$dientich,$dientichcongnhan,
     $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
     $hopdongthue,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
@@ -39,12 +39,12 @@ class Model_Tin extends Model_db{
     ,$id){
         if($img == "")
         {
-            $sql = "UPDATE tin SET tieude= ?,mota=?,diachi=?,sdt=?,nguoidang=?,quanhuyen=?,phuongxa=?,";
+            $sql = "UPDATE tin SET tieude= ?,mota=?,diachi=?,sdt=?,nguoidang=?,quanhuyen=?,phuongxa=?,duong=?,";
             $sql .=" gia=?,dientich=?,dientichcongnhan=?,rong=?,dai=?,sotang=?,soto=?,sothuo=?,sophongngu=?,sophongvesinh=?,";
             $sql .=" hopdongthue=?,huong=?,ngaydang=?,ngaycapnhat=?,loai=?,kieuduong=?,phaply=?,nguon=?,kiemduyet=?,binhchonchinhchu=?,binhchonmoigioi=?,trangthainha=?,duongrong=?,";
             $sql .=" ghichu=? WHERE id=?";
             return $this->SqlExecDebug($sql,
-            $tieude,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,
+            $tieude,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,$duong,
             $gia,$dientich,$dientichcongnhan,
             $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
             $hopdongthue,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
@@ -52,12 +52,12 @@ class Model_Tin extends Model_db{
             $trangthainha,$duongrong,$ghichu,$id);
         }else
         {
-            $sql = "UPDATE tin SET tieude= ?,img=?,mota=?,diachi=?,sdt=?,nguoidang=?,quanhuyen=?,phuongxa=?,";
+            $sql = "UPDATE tin SET tieude= ?,img=?,mota=?,diachi=?,sdt=?,nguoidang=?,quanhuyen=?,phuongxa=?,duong=?,";
             $sql .=" gia=?,dientich=?,dientichcongnhan=?,rong=?,dai=?,sotang=?,soto=?,sothuo=?,sophongngu=?,sophongvesinh=?,";
             $sql .=" hopdongthue=?,huong=?,ngaydang=?,ngaycapnhat=?,loai=?,kieuduong=?,phaply=?,nguon=?,kiemduyet=?,binhchonchinhchu=?,binhchonmoigioi=?,trangthainha=?,duongrong=?,";
             $sql .=" ghichu=? WHERE id=?";
             return $this->SqlExecDebug($sql,
-            $tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,
+            $tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,$duong,
             $gia,$dientich,$dientichcongnhan,
             $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
             $hopdongthue,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
@@ -187,13 +187,18 @@ class Model_Tin extends Model_db{
     }
 
     function GetAllProvince(){
-        $sql = "SELECT * FROM tbl_quanhuyen WHERE 1";
+        $sql = "SELECT * FROM quan WHERE 1";
         
         return $this->result1(0,$sql);
     }
 
     function GetXaByIdQuanHuyen($id){
-        $sql = "SELECT * FROM tbl_xaphuongthitran WHERE maqh = ?";
+        $sql = "SELECT * FROM phuong WHERE id_quan = ?";
+        return $this->result1(0,$sql,$id);
+    }
+
+    function GetDuongByIdQuanHuyen($id){
+        $sql = "SELECT * FROM duong WHERE id_phuong = ?";
         return $this->result1(0,$sql,$id);
     }
 

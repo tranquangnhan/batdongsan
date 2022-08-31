@@ -22,6 +22,9 @@ class BaiViet{
             case 'getxa':
                 $this->getXa();
                 break;
+            case 'getduong':
+                $this->getDuong();
+                break;
             case 'addnew':
                 $this->addNew();
                 break; 
@@ -94,13 +97,14 @@ class BaiViet{
             array( 'db' => 'tieude',  'dt' => 1),
             array( 'db' => 'quanhuyen',  'dt' => 2 ),
             array( 'db' => 'phuongxa',   'dt' => 3 ),
-            array( 'db' => 'dientich',  'dt' => 4 ),
-            array( 'db' => 'sotang',  'dt' => 5 ),
-            array( 'db' => 'gia',     'dt' => 6 ),
-            array( 'db' => 'locgia',     'dt' => 7 ),
-            array( 'db' => 'locdientich',     'dt' => 8 ),
+            array( 'db' => 'duong',   'dt' => 4 ),
+            array( 'db' => 'dientich',  'dt' => 5 ),
+            array( 'db' => 'sotang',  'dt' => 6 ),
+            array( 'db' => 'gia',     'dt' => 7 ),
+            array( 'db' => 'locgia',     'dt' => 8 ),
+            array( 'db' => 'locdientich',     'dt' => 9 ),
             array( 'db'        => 'nguon',
-                'dt'        => 9,
+                'dt'        => 10,
                 'formatter' => function( $d, $row ) {
                 
                     $nguon = '';
@@ -118,7 +122,7 @@ class BaiViet{
                 }
             ),
              array( 'db'        => 'id',
-                    'dt'        => 10,
+                    'dt'        => 11,
                     'formatter' => function( $d, $row ) {
                          $linkDetail = '?ctrl=baiviet&act=detail&id='.$d;
                          $buttonDetail = ' <td><a href=""><a name="" id="" class="btn btn-success" href="'.$linkDetail.'" role="button"><span class="mdi mdi-feature-search-outline"></span></a></a></a></td>';
@@ -126,7 +130,7 @@ class BaiViet{
                     }
                 ),
             array( 'db'        => 'id',
-                    'dt'        => 11,
+                    'dt'        => 12,
                     'formatter' => function( $d, $row ) {
                         $linkDel = "'?ctrl=baiviet&act=delete&id=".$d."'";
                         if($_SESSION['role'] === '0'){
@@ -136,7 +140,7 @@ class BaiViet{
                     }
                 ),
             array( 'db'        => 'id',
-                    'dt'        => 12,
+                    'dt'        => 13,
                     'formatter' => function( $d, $row ) {
                          $linkEdit = '?ctrl=baiviet&act=edit&id='.$d;
                     
@@ -146,7 +150,7 @@ class BaiViet{
                         return $buttonEdit;
                     }
                 ),
-            array( 'db' => 'id', 'dt' => 13 ),
+            array( 'db' => 'id', 'dt' => 14 ),
          
         );
         
@@ -179,6 +183,16 @@ class BaiViet{
       
         $xa = $this->model->GetXaByIdQuanHuyen($id);
         $Array['xa'] = $xa;
+        echo json_encode($Array);
+    }
+
+    function getDuong()
+    {   
+        $Array = array();
+        $id = $_POST['id'];
+      
+        $duong = $this->model->GetDuongByIdQuanHuyen($id);
+        $Array['duong'] = $duong;
         echo json_encode($Array);
     }
 
@@ -238,6 +252,7 @@ class BaiViet{
             $nguoidang = $_POST['nguoidang'];
             $quanhuyen = $_POST['quanhuyen'];
             $phuongxa = $_POST['phuongxa'];
+            $duong = $_POST['duong'];
            
             $gia = $_POST['gia'];
             $dientich = $_POST['dientich'];
@@ -294,7 +309,7 @@ class BaiViet{
                         $hopdongthueImgs = $oneRecode['hopdongthue'];
                     }
                    
-                    $this->edit($tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,$gia,$dientich,$dientichcongnhan,
+                    $this->edit($tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,$duong,$gia,$dientich,$dientichcongnhan,
                     $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
                     $hopdongthueImgs,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
                     $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
@@ -303,7 +318,7 @@ class BaiViet{
                 
                 }else
                 {
-                    $this->store($tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,$gia,$dientich,$dientichcongnhan,
+                    $this->store($tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,$duong,$gia,$dientich,$dientichcongnhan,
                     $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
                     $hopdongthueImgs,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
                     $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
@@ -319,13 +334,13 @@ class BaiViet{
 
 
     function store(
-    $tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,$gia,$dientich,$dientichcongnhan,
+    $tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,$duong,$gia,$dientich,$dientichcongnhan,
     $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
     $hopdongthueImgs,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
     $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
     $trangthainha,$duongrong,$ghichu){   
         $idLastBaiViet = $this->model->addNewTin(
-        $tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,$gia,$dientich,$dientichcongnhan,
+        $tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,$duong,$gia,$dientich,$dientichcongnhan,
         $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
         $hopdongthueImgs,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
         $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
@@ -343,7 +358,7 @@ class BaiViet{
     }
 
     function edit(
-    $tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,
+    $tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,$duong,
     $gia,$dientich,$dientichcongnhan,
     $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
     $hopdongthue,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
@@ -353,7 +368,7 @@ class BaiViet{
     {
         if($_SESSION['role'] === '0' || $_SESSION['role'] === '1'){
             if($this->model->editTin(
-            $tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,
+            $tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,$duong,
             $gia,$dientich,$dientichcongnhan,
             $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
             $hopdongthue,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,

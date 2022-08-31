@@ -205,7 +205,7 @@ div.dataTables_wrapper div.dataTables_filter {
   .hinh:first-child{
     height: 60px ;
   }
-  td:nth-child(8),td:nth-child(9),td:nth-child(14){
+  td:nth-child(9),td:nth-child(10),td:nth-child(15){
     display: none !important;
   }
   .hienloc{

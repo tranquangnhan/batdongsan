@@ -109,17 +109,17 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Quận huyện</label>
                                                     <select class="form-control" name="quanhuyen" id="quanhuyen">
                                                         <option value="">Quận Huyện</option>
                                                         <?php 
                                                             foreach ( $GetProvince as $key => $value) {
-                                                                if(strtolower($value['name_quanhuyen']) == strtolower(trim($oneRecode['quanhuyen']))){
-                                                                    echo '<option selected data-id="'.$value['maqh'].'" value="'.$value['name_quanhuyen'].'">'.$value['name_quanhuyen'].'</option>';
+                                                                if(strtolower($value['ten_quan']) == strtolower(trim($oneRecode['quanhuyen']))){
+                                                                    echo '<option selected data-id="'.$value['id_quan'].'" value="'.$value['ten_quan'].'">'.$value['ten_quan'].'</option>';
                                                                 }else{
-                                                                    echo '<option  data-id="'.$value['maqh'].'" value="'.$value['name_quanhuyen'].'">'.$value['name_quanhuyen'].'</option>';
+                                                                    echo '<option  data-id="'.$value['id_quan'].'" value="'.$value['ten_quan'].'">'.$value['ten_quan'].'</option>';
                                                                 }
                                                           
                                                             }
@@ -127,12 +127,21 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Phường xã</label>
                                                     <input type="hidden" id="phuongxahidden" value="<?=strtolower(trim($oneRecode['phuongxa']))?>">
                                                     <select class="form-control" name="phuongxa" id="phuongxaajax">
                                                         <option value="" selected>Chọn Phường Xã</option>
+                                                    </select>              
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="">Đường</label>
+                                                    <input type="hidden" id="duonghidden" value="<?=strtolower(trim($oneRecode['duong']))?>">
+                                                    <select class="form-control" name="duong" id="duongajax">
+                                                        <option value="" selected>Chọn Đường</option>
                                                     </select>              
                                                 </div>
                                             </div>

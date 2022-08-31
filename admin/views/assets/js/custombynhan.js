@@ -110,35 +110,16 @@ $.fn.dataTable.pipeline = function (opts) {
   };
 };
 
-// Register an API method that will empty the pipelined data, forcing an Ajax
-// fetch on the next draw (i.e. `table.clearPipeline().draw()`)
-// $.fn.dataTable.Api.register('clearPipeline()', function () {
-//   return this.iterator('table', function (settings) {
-//       settings.clearCache = true;
-//   });
-// });
-// $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
-//   let left = parseInt($( '#left' ).val());
-//   let right = parseInt($( '#right' ).val());
-  
-//   let gia = 0;
-
-//   console.log(data)
-//   // if(data[7].includes("tỷ")){
-//   //     gia = data[7].split(" ")[0];
-//   // }
-//   return gia > left && gia < right ? true : false;
-// });
-
-//
-// DataTables initialisation
-//
 $(document).ready(function () {
  
  $('#quanhuyen').change(function (e) { 
     e.preventDefault();
     getPhuongXa($('#quanhuyen').find(":selected").attr('data-id'))
-  });   
+  });
+  $('#phuongxaajax').change(function (e) { 
+    e.preventDefault();
+    getDuong($('#phuongxaajax').find(":selected").attr('data-id'))
+  });      
 
   function getPhuongXa(idQuanHuyen){
     $.ajax({
@@ -152,14 +133,19 @@ $(document).ready(function () {
             let res = '';
             res += `<option value="" selected>Chọn Phường Xã</option>`;
             res += response.xa?.reduce((kq,item)=>{
-                if(phuongXaHidden != '' && phuongXaHidden?.toLowerCase()?.trim() == item?.name_xaphuong?.toLowerCase()?.trim()){
-                    kq += `<option selected value="${item.name_xaphuong}">${item.name_xaphuong}</option>`;
+                if(phuongXaHidden != '' && phuongXaHidden?.toLowerCase()?.trim() == item?.ten_phuong?.toLowerCase()?.trim()){
+                    kq += `<option selected data-id="${item.id_phuong}" value="${item.ten_phuong}">${item.ten_phuong}</option>`;
+                }else{
+                    kq += `<option data-id="${item.id_phuong}" value="${item.ten_phuong}">${item.ten_phuong}</option>`;
                 }
-                kq += `<option value="${item.name_xaphuong}">${item.name_xaphuong}</option>`;
                 return kq;
             },'');
 
             $("#phuongxaajax").html(res);
+
+            if($('#phuongxaajax').find(":selected").attr('data-id') != ''){
+                getDuong($('#phuongxaajax').find(":selected").attr('data-id'))
+            }
         }
       });
     }
@@ -167,9 +153,40 @@ $(document).ready(function () {
   //function thực hiện code khi đã có quận huyện   
   ( ()=>{
     if($("#quanhuyen").find(":selected").attr('data-id') != ''){
-        getPhuongXa($("#quanhuyen").find(":selected").attr('data-id'))
-      }
+        getPhuongXa($("#quanhuyen").find(":selected").attr('data-id'));
+     
+   }
   })();
+
+  
+
+  function getDuong(idPhuongXa){
+    console.log(idPhuongXa)
+    $.ajax({
+        type: "POST",
+        url: "?ctrl=baiviet&act=getduong",
+        data: {id:idPhuongXa},
+        dataType: "JSON",
+        success: function (response) {
+            let duongHidden = $("#duonghidden").val();
+
+            let res = '';
+            res += `<option value="" selected>Chọn đường</option>`;
+            res += response.duong?.reduce((kq,item)=>{
+                if(duongHidden != '' && duongHidden?.toLowerCase()?.trim() == item?.ten_duong?.toLowerCase()?.trim()){
+                    kq += `<option selected value="${item.ten_duong}">${item.ten_duong}</option>`;
+                }else{
+                    kq += `<option value="${item.ten_duong}">${item.ten_duong}</option>`;
+                }
+                return kq;
+            },'');
+
+            $("#duongajax").html(res);
+        }
+      });
+    }
+
+
  
 
   
@@ -233,21 +250,21 @@ $(document).ready(function () {
                 that.column(3).search(regexPhuongXa, true, false )
               }
 
-              that.column(5).search( sotang )
+              that.column(6).search( sotang )
          
               if(gia == ""){
-                that.column(7).search("")
+                that.column(8).search("")
               }else{
-                that.column(7).search(regexGia, true, false)
+                that.column(8).search(regexGia, true, false)
               }
    
 
             if(dientich == ""){
-                that.column(8).search("")
+                that.column(9).search("")
             }else{
-                that.column(8).search(regexDienTich,true,false)
+                that.column(9).search(regexDienTich,true,false)
             }
-            that.column(9).search(nguon, false, false).draw();
+            that.column(10).search(nguon, false, false).draw();
             
                 
           });

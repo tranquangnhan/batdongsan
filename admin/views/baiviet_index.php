@@ -32,7 +32,7 @@
                                                     <option value="">Quận Huyện</option>
                                                     <?php 
                                                         foreach ( $GetProvince as $key => $value) {
-                                                           echo '<option data-id="'.$value['maqh'].'" value="'.$value['name_quanhuyen'].'">'.$value['name_quanhuyen'].'</option>';
+                                                           echo '<option data-id="'.$value['id_quan'].'" value="'.$value['ten_quan'].'">'.$value['ten_quan'].'</option>';
                                                         }
                                                     ?>
                                                   </select>
@@ -42,6 +42,13 @@
                                             <div class="form-group">
                                             <select class="form-control" name="" id="phuongxaajax">
                                                 <option value="" selected>Chọn Phường Xã</option>
+                                            </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <div class="form-group">
+                                            <select class="form-control" name="" id="duongajax">
+                                                <option value="" selected>Chọn Đường</option>
                                             </select>
                                             </div>
                                         </div>
@@ -61,7 +68,7 @@
                                                     </div>
                                         </div>
                                         <div class="col-lg-2">
-                                            <div class="form-group">
+                                            <div class="form-group mt-3 pt-1">
                                                 <input type="text" name="" id="sotang" class="form-control" placeholder="Số tầng" aria-describedby="helpId">
                                             </div>
                                         </div>
@@ -116,6 +123,7 @@
                                                                 <th >Tiêu Đề </th>
                                                                 <th >Quận Huyện</th>
                                                                 <th >Phường Xã</th>
+                                                                <th >Đường</th>
                                                                 <th >Diện tích</th>
                                                                 <th>Số tầng</th>
                                                                 <th>Giá</th>

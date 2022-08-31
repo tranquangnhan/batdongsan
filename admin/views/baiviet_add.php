@@ -77,7 +77,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Quận huyện</label>
                                                     
@@ -85,17 +85,25 @@
                                                         <option value="">Quận Huyện</option>
                                                         <?php 
                                                             foreach ( $GetProvince as $key => $value) {
-                                                            echo '<option data-id="'.$value['maqh'].'" value="'.$value['name_quanhuyen'].'">'.$value['name_quanhuyen'].'</option>';
+                                                            echo '<option data-id="'.$value['id_quan'].'" value="'.$value['ten_quan'].'">'.$value['ten_quan'].'</option>';
                                                             }
                                                         ?>
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Phường xã</label>
                                                     <select class="form-control" name="phuongxa" id="phuongxaajax">
                                                         <option value="" selected>Chọn Phường Xã</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="">Đường</label>
+                                                    <select class="form-control" name="duong" id="duongajax">
+                                                        <option value="" selected>Chọn Đường</option>
                                                     </select>
                                                 </div>
                                             </div>

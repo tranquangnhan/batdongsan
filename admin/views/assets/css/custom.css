@@ -241,4 +241,8 @@ div.dataTables_wrapper div.dataTables_filter {
     .filter{
       display: none;
     }
+    .image{
+      width: 150px !important;
+      height: auto !important;
+    }
 }

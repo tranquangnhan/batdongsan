@@ -187,18 +187,18 @@ class Model_Tin extends Model_db{
     }
 
     function GetAllProvince(){
-        $sql = "SELECT * FROM quan WHERE 1";
+        $sql = "SELECT * FROM quan WHERE 1 ORDER BY ten_quan DESC";
         
         return $this->result1(0,$sql);
     }
 
     function GetXaByIdQuanHuyen($id){
-        $sql = "SELECT * FROM phuong WHERE id_quan = ?";
+        $sql = "SELECT * FROM phuong WHERE id_quan = ? ORDER BY ten_phuong ASC";
         return $this->result1(0,$sql,$id);
     }
 
     function GetDuongByIdQuanHuyen($id){
-        $sql = "SELECT * FROM duong WHERE id_phuong = ?";
+        $sql = "SELECT * FROM duong WHERE id_phuong = ? ORDER BY ten_duong ASC";
         return $this->result1(0,$sql,$id);
     }
 

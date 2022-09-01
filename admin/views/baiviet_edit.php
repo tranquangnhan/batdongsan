@@ -34,7 +34,7 @@
                                             <?php
                                                $imgs = json_decode($oneRecode['img']);
                                                foreach ($imgs as $row) {
-                                                   echo '<img width="200" style="object-fit: cover; margin-right:10px;margin-top:10px; border-radius:3px;" height="200" src="'.$row.'" alt="">';
+                                                   echo '<img width="200" class="image" style="object-fit: cover; margin-right:10px;margin-top:10px; border-radius:3px;" height="200" src="'.$row.'" alt="">';
                                                }
                                             ?>
                                             <br>
@@ -47,7 +47,7 @@
                                             <?php
                                                $hopdongthue = json_decode($oneRecode['hopdongthue']);
                                                foreach ($hopdongthue as $hopdong) {
-                                                   echo '<img width="200" style="object-fit: cover; margin-right:15px; border-radius:3px;" height="200" src="'.$hopdong.'" alt="">';
+                                                   echo '<img width="200" class="image" style="object-fit: cover; margin-right:15px; border-radius:3px;" height="200" src="'.$hopdong.'" alt="">';
                                                }
                                             ?>
                                             <br>

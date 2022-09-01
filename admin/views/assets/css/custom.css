@@ -226,9 +226,7 @@ div.dataTables_wrapper div.dataTables_filter {
       height: 70px ;
       margin-bottom: 0.3rem;
     }
-    .sorting_1{
-      padding: 0 !important;
-    }
+  
     .p-m-0{
       padding: 0 !important;
     }
@@ -242,7 +240,15 @@ div.dataTables_wrapper div.dataTables_filter {
       display: none;
     }
     .image{
-      width: 150px !important;
+      width: 45% !important;
       height: auto !important;
+    }
+    .box-image{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .table td, .table th{
+      padding: 0.85rem 0.3rem;
     }
 }

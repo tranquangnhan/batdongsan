@@ -31,7 +31,7 @@
                                         <div class="form-group">
                                             <label for="">Hình ảnh</label>
                                             <br>
-                                            <div class="d-flex flex-wrap">
+                                            <div class="box-image">
                                                 <?php
                                                 $imgs = json_decode($oneRecode['img']);
                                                 foreach ($imgs as $row) {
@@ -46,7 +46,7 @@
                                         <div class="form-group">
                                             <label for="">Hợp đồng thuê / hình sổ</label>
                                             <br>
-                                            <div class="d-flex flex-wrap">
+                                            <div class="box-image">
                                                 <?php
                                                 $hopdongthue = json_decode($oneRecode['hopdongthue']);
                                                 foreach ($hopdongthue as $hopdong) {

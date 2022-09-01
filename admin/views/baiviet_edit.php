@@ -31,12 +31,14 @@
                                         <div class="form-group">
                                             <label for="">Hình ảnh</label>
                                             <br>
-                                            <?php
-                                               $imgs = json_decode($oneRecode['img']);
-                                               foreach ($imgs as $row) {
-                                                   echo '<img width="200" class="image" style="object-fit: cover; margin-right:10px;margin-top:10px; border-radius:3px;" height="200" src="'.$row.'" alt="">';
-                                               }
-                                            ?>
+                                            <div class="d-flex flex-wrap">
+                                                <?php
+                                                $imgs = json_decode($oneRecode['img']);
+                                                foreach ($imgs as $row) {
+                                                    echo '<img width="200" class="image" style="object-fit: cover; margin-right:10px;margin-top:10px; border-radius:3px;" height="200" src="'.$row.'" alt="">';
+                                                }
+                                                ?>
+                                            </div>
                                             <br>
                                            <input class="mt-2" type="file" name="img[]" multiple>
                                         </div>
@@ -44,12 +46,14 @@
                                         <div class="form-group">
                                             <label for="">Hợp đồng thuê / hình sổ</label>
                                             <br>
-                                            <?php
-                                               $hopdongthue = json_decode($oneRecode['hopdongthue']);
-                                               foreach ($hopdongthue as $hopdong) {
-                                                   echo '<img width="200" class="image" style="object-fit: cover; margin-right:15px; border-radius:3px;" height="200" src="'.$hopdong.'" alt="">';
-                                               }
-                                            ?>
+                                            <div class="d-flex flex-wrap">
+                                                <?php
+                                                $hopdongthue = json_decode($oneRecode['hopdongthue']);
+                                                foreach ($hopdongthue as $hopdong) {
+                                                    echo '<img width="200" class="image" style="object-fit: cover; margin-right:15px; border-radius:3px;" height="200" src="'.$hopdong.'" alt="">';
+                                                }
+                                                ?>
+                                            </div>
                                             <br>
                                            <input class="mt-2" type="file" name="hopdongthue[]" multiple>
                                         </div>

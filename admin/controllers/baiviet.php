@@ -125,7 +125,7 @@ class BaiViet{
                     'dt'        => 11,
                     'formatter' => function( $d, $row ) {
                          $linkDetail = '?ctrl=baiviet&act=detail&id='.$d;
-                         $buttonDetail = ' <td><a href=""><a name="" id="" class="btn btn-success" href="'.$linkDetail.'" role="button"><span class="mdi mdi-feature-search-outline"></span></a></a></a></td>';
+                         $buttonDetail = ' <td><a href=""><a name="" id="" target="_blank" class="btn btn-success" href="'.$linkDetail.'" role="button"><span class="mdi mdi-feature-search-outline"></span></a></a></a></td>';
                         return $buttonDetail;
                     }
                 ),
@@ -145,7 +145,7 @@ class BaiViet{
                          $linkEdit = '?ctrl=baiviet&act=edit&id='.$d;
                     
                         if($_SESSION['role'] === '0' || $_SESSION['role'] === '1'){
-                            $buttonEdit = ' <td><a href=""><a name="" id="" class="btn btn-primary" href="'.$linkEdit.'" role="button"><span class="mdi mdi-pencil"></span></a></a></a></td>';
+                            $buttonEdit = ' <td><a href=""><a name="" target="_blank" id="" class="btn btn-primary" href="'.$linkEdit.'" role="button"><span class="mdi mdi-pencil"></span></a></a></a></td>';
                         }
                         return $buttonEdit;
                     }

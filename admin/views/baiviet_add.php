@@ -274,7 +274,7 @@
                                                     <select name="nguon" id="" class="form-control">
                                                         <option value="">Chọn nguồn</option>
                                                         <?php
-                                                            $array = ["0"=>"Nhà Chính Chủ","1"=>"Chợ Tốt","2"=>"landlooking","3"=>"Ký gửi"];
+                                                            $array = ["0"=>"Nhà Chính Chủ","1"=>"Nhà bán Sg","2"=>"landlooking","3"=>"Chợ tốt","4"=>"Ký gửi"];
                                                             foreach ($array as $key => $value) {
                                                                 echo "<option value='".$key."'>".$value."</option>";
                                                             }

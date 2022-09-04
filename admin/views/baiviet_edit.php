@@ -324,7 +324,7 @@
                                                     <select name="nguon" id="" class="form-control">
                                                         <option value="">Nguồn</option>
                                                         <?php
-                                                            $array = ["0"=>"Nhà Chính Chủ","1"=>"Nhà bán sg","2"=>"landlooking","3"=>"Chợ tốt"];
+                                                            $array = ["0"=>"Nhà Chính Chủ","1"=>"Nhà bán sg","2"=>"landlooking","3"=>"Chợ tốt","4"=>"Ký gửi"];
                                                             foreach ($array as $key => $value) {
                                                                 if($key == $oneRecode['nguon']){
                                                                     echo "<option selected value='".$key."'>".$value."</option>";

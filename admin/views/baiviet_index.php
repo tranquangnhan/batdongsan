@@ -96,7 +96,7 @@
                                             <div class="form-group">
                                                     <label for="">Nguồn</label>
                                                     <?php
-                                                        $arrDienTich = ["Nhà chính chủ","Nhà bán sg","Landlooking","Chợ tốt"];
+                                                        $arrDienTich = ["Nhà chính chủ","Nhà bán sg","Landlooking","Chợ tốt","Ký gửi"];
                                                     ?>
                                                     <select class="form-control" name="" id="nguon">
                                                         <option value="">Chọn nguồn</option>

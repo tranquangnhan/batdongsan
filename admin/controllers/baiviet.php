@@ -114,8 +114,10 @@ class BaiViet{
                         $nguon = '<div class="text-secondary">Nhà bán sg<div>';
                     }elseif($d == 2){
                         $nguon = '<div class="text-success">Landlooking<div>';
-                    }else{
+                    }elseif($d == 3){
                         $nguon = '<div class="text-danger">Chợ tốt<div>';
+                    }else{
+                        $nguon = '<div class="text-warning">Ký gửi<div>';
                     }
                  
                     return $nguon;

@@ -281,7 +281,11 @@
                                                         <?php
                                                              $array = ["0"=>"Chung cư","1"=>"Hẻm","2"=>"Biệt thự","3"=>"Biệt thự","3"=>"Mặt tiền","4"=>"shophouse","5"=>"Đất nền dự án","6"=>"Đất","7"=>"Trang trại, khu nghĩ dưỡng","8"=>"Kho, nhà xưởng","9"=>"khác"];
                                                             foreach ($array as $key => $value) {
-                                                                echo "<option value='".$key."'>".$value."</option>";
+                                                                if($key == $oneRecode['loai']){
+                                                                    echo "<option selected value='".$key."'>".$value."</option>";
+                                                                }else{
+                                                                    echo "<option value='".$key."'>".$value."</option>";
+                                                                }
                                                             }
                                                         ?>
 

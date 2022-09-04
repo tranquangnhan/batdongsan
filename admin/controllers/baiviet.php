@@ -220,8 +220,9 @@ class BaiViet{
 
     function addNew()
     {  
-        $arrayFilterGia = [50000000000,40000000000,30000000000,25000000000,20000000000,15000000000,10000000000,7000000000,5000000000,1000000000,950000000,900000000,850000000,800000000,750000000,700000000,650000000,600000000,550000000,500000000,450000000,40000000,350000000,300000000,250000000,200000000,150000000,100000000,50000000,0];
-       
+        $arrayFilterGia = [50000000000,40000000000,30000000000,25000000000,20000000000,15000000000,10000000000,7000000000,5000000000,1000000000,950000000,900000000,850000000,800000000,750000000,700000000,650000000,600000000,550000000,500000000,450000000,400000000,350000000,300000000,250000000,200000000,150000000,100000000,50000000,0];
+        $arrayFilterDienTich = [500,300,250,200,150,100,80,50,30,0];
+
         $GetProvince = $this->model->GetAllProvince();
         if(isset($_GET['id'])&&($_GET['act']='dienthoai')){
             $oneRecode = $this->model->showOneTin($_GET['id']);
@@ -238,6 +239,11 @@ class BaiViet{
 
         if(isset($_POST['them'])&&$_POST['them'])
         {
+
+           
+           
+          
+
 
             $tieude = $this->lib->stripTags($_POST['tieude']);
             $slug = $this->lib->slug($tieude);
@@ -282,6 +288,16 @@ class BaiViet{
             $ghichu = $_POST['ghichu'];
     	     
 	       
+            function filterGia($gia)
+            {
+                return $_POST['gia'] >= $gia;
+            }
+            function filterDienTich($dienTich)
+            {
+                return $_POST['dientich'] >= $dienTich;
+            }
+            $locGia = array_key_first(array_filter($arrayFilterGia, "filterGia"));
+            $locDienTich = array_key_first(array_filter($arrayFilterDienTich, "filterDienTich"));
 
 
 
@@ -317,7 +333,7 @@ class BaiViet{
                     $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
                     $hopdongthueImgs,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
                     $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
-                    $trangthainha,$duongrong,$ghichu
+                    $trangthainha,$duongrong,$ghichu,$locGia,$locDienTich
                     ,$id);
                 
                 }else
@@ -326,7 +342,7 @@ class BaiViet{
                     $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
                     $hopdongthueImgs,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
                     $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
-                    $trangthainha,$duongrong,$ghichu);
+                    $trangthainha,$duongrong,$ghichu,$locGia,$locDienTich);
                 }    
             }
 
@@ -342,13 +358,13 @@ class BaiViet{
     $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
     $hopdongthueImgs,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
     $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
-    $trangthainha,$duongrong,$ghichu){   
+    $trangthainha,$duongrong,$ghichu,$locGia,$locDienTich){   
         $idLastBaiViet = $this->model->addNewTin(
         $tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,$duong,$gia,$dientich,$dientichcongnhan,
         $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
         $hopdongthueImgs,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
         $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
-        $trangthainha,$duongrong,$ghichu);
+        $trangthainha,$duongrong,$ghichu,$locGia,$locDienTich);
 
 	if($idLastBaiViet != null)
         {
@@ -368,7 +384,7 @@ class BaiViet{
     $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
     $hopdongthue,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
     $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
-    $trangthainha,$duongrong,$ghichu
+    $trangthainha,$duongrong,$ghichu,$locGia,$locDienTich
     ,$id)
     {
         if($_SESSION['role'] === '0' || $_SESSION['role'] === '1'){
@@ -378,7 +394,7 @@ class BaiViet{
             $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
             $hopdongthue,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
             $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
-            $trangthainha,$duongrong,$ghichu
+            $trangthainha,$duongrong,$ghichu,$locGia,$locDienTich
             ,$id))
             {
                 echo "<script>alert('Sửa thành công')</script>";

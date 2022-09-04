@@ -55,7 +55,7 @@
                                         <div class="col-lg-2">
                                             <div class="form-group">
                                                     <?php
-                                                        $arrDienTich = ['Trên 500 m2','300 - 500 m2',"250 - 300 m2","200 - 250 m2","150 - 200 m2","100 - 150 m2","80 - 100 m2","50 - 80 m2","30 - 50 m2","Dưới 30 m2"];
+                                                        $arrDienTich = ['Trên 500 m2','300 - 499 m2',"250 - 299 m2","200 - 249 m2","150 - 199 m2","100 - 149 m2","80 - 99 m2","50 - 79 m2","30 - 49 m2","Dưới 30 m2"];
                                                     ?>
                                                     <select class="form-control" name="" id="locdientich">
                                                         <option value="">Lọc diện tích</option>
@@ -77,7 +77,7 @@
                                                 <div class="form-group">
                                                   <label for="">Lọc</label>
                                                   <?php
-                                                    $arrFilterGia = ['Trên 50 tỉ','40 tỉ - 50 tỉ',"30 tỉ - 40 tỉ","25 tỉ - 30 tỉ","20 tỉ - 25 tỉ","15 tỉ - 20 tỉ","10 tỉ - 15 tỉ","7 tỉ - 10 tỉ","5 tỉ - 7 tỉ","1 tỉ - 5 tỉ","950tr - 1 tỉ","900tr - 950tr","850tr - 900tr","800tr - 850tr","750tr - 800tr","700tr - 750tr","650tr - 700tr","600tr - 650tr","550tr - 600tr","500tr - 550tr","450tr - 500tr","400tr - 450tr","350tr - 400tr","300tr - 350tr","250tr - 300tr","200tr - 250tr","150tr - 200tr","100tr - 150tr","50tr - 100tr","0 - 50tr"];
+                                                    $arrFilterGia = ['Trên 50 tỉ','40 tỉ - 50 tỉ',"30 tỉ - 40 tỉ","25 tỉ - 30 tỉ","20 tỉ - 25 tỉ","15 tỉ - 20 tỉ","10 tỉ - 15 tỉ","7 tỉ - 10 tỉ","5 tỉ - 7 tỉ","1 tỉ - 5 tỉ","950tr - 1 tỉ","900tr - 949tr","850tr - 899tr","800tr - 849tr","750tr - 799tr","700tr - 749tr","650tr - 699tr","600tr - 649tr","550tr - 599tr","500tr - 549tr","450tr - 499tr","400tr - 449tr","350tr - 399tr","300tr - 349tr","250tr - 299tr","200tr - 249tr","150tr - 199tr","100tr - 149tr","50tr - 99tr","0 - 49tr"];
                                                   ?>
                                                   <select class="form-control" name="" id="gia">
                                                     <option value="">Lọc giá</option>

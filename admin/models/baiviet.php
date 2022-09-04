@@ -12,15 +12,15 @@ class Model_Tin extends Model_db{
     $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
     $hopdongthueImgs,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
     $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
-    $trangthainha,$duongrong,$ghichu)
+    $trangthainha,$duongrong,$ghichu,$locGia,$locDienTich)
     {
-        $sql = "INSERT INTO tin(tieude,img,mota,diachi,sdt,nguoidang,quanhuyen,phuongxa,duong,gia,dientich,dientichcongnhan,rong,dai,sotang,soto,sothuo,sophongngu,sophongvesinh,hopdongthue,huong,ngaydang,ngaycapnhat,loai,kieuduong,phaply,nguon,kiemduyet,binhchonchinhchu,binhchonmoigioi,trangthainha,duongrong,ghichu) VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO tin(tieude,img,mota,diachi,sdt,nguoidang,quanhuyen,phuongxa,duong,gia,dientich,dientichcongnhan,rong,dai,sotang,soto,sothuo,sophongngu,sophongvesinh,hopdongthue,huong,ngaydang,ngaycapnhat,loai,kieuduong,phaply,nguon,kiemduyet,binhchonchinhchu,binhchonmoigioi,trangthainha,duongrong,ghichu,locgia,locdientich) VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         return $this->getLastId($sql,
         $tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,$duong,$gia,$dientich,$dientichcongnhan,
         $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
         $hopdongthueImgs,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
         $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
-        $trangthainha,$duongrong,$ghichu);
+        $trangthainha,$duongrong,$ghichu,$locGia,$locDienTich);
     }
 
     function deleteTin($id)
@@ -35,34 +35,34 @@ class Model_Tin extends Model_db{
     $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
     $hopdongthue,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
     $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
-    $trangthainha,$duongrong,$ghichu
+    $trangthainha,$duongrong,$ghichu,$locGia,$locDienTich
     ,$id){
         if($img == "")
         {
             $sql = "UPDATE tin SET tieude= ?,mota=?,diachi=?,sdt=?,nguoidang=?,quanhuyen=?,phuongxa=?,duong=?,";
             $sql .=" gia=?,dientich=?,dientichcongnhan=?,rong=?,dai=?,sotang=?,soto=?,sothuo=?,sophongngu=?,sophongvesinh=?,";
             $sql .=" hopdongthue=?,huong=?,ngaydang=?,ngaycapnhat=?,loai=?,kieuduong=?,phaply=?,nguon=?,kiemduyet=?,binhchonchinhchu=?,binhchonmoigioi=?,trangthainha=?,duongrong=?,";
-            $sql .=" ghichu=? WHERE id=?";
+            $sql .=" ghichu=?, locgia=?, locdientich=? WHERE id=?";
             return $this->SqlExecDebug($sql,
             $tieude,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,$duong,
             $gia,$dientich,$dientichcongnhan,
             $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
             $hopdongthue,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
             $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
-            $trangthainha,$duongrong,$ghichu,$id);
+            $trangthainha,$duongrong,$ghichu,$locGia,$locDienTich,$id);
         }else
         {
             $sql = "UPDATE tin SET tieude= ?,img=?,mota=?,diachi=?,sdt=?,nguoidang=?,quanhuyen=?,phuongxa=?,duong=?,";
             $sql .=" gia=?,dientich=?,dientichcongnhan=?,rong=?,dai=?,sotang=?,soto=?,sothuo=?,sophongngu=?,sophongvesinh=?,";
             $sql .=" hopdongthue=?,huong=?,ngaydang=?,ngaycapnhat=?,loai=?,kieuduong=?,phaply=?,nguon=?,kiemduyet=?,binhchonchinhchu=?,binhchonmoigioi=?,trangthainha=?,duongrong=?,";
-            $sql .=" ghichu=? WHERE id=?";
+            $sql .=" ghichu=?, locgia=?, locdientich=? WHERE id=?";
             return $this->SqlExecDebug($sql,
             $tieude,$img,$mota,$diachi,$sdt,$nguoidang,$quanhuyen,$phuongxa,$duong,
             $gia,$dientich,$dientichcongnhan,
             $rong,$dai,$sotang,$soto,$sothuo,$sophongngu,$sophongvesinh,
             $hopdongthue,$huong,$ngaydang,$ngaycapnhat,$loai,$kieuduong,
             $phaply,$nguon,$kiemduyet,$binhchonchinhchu,$binhchonmoigioi,
-            $trangthainha,$duongrong,$ghichu,$id);
+            $trangthainha,$duongrong,$ghichu,$locGia,$locDienTich,$id);
         }
     }
 

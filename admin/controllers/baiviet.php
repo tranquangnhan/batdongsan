@@ -153,7 +153,8 @@ class BaiViet{
                     }
                 ),
             array( 'db' => 'id', 'dt' => 14 ),
-         
+            array( 'db' => 'loai', 'dt' => 15 ),
+            array( 'db' => 'huong', 'dt' => 16 ),
         );
         
         // SQL server connection information
@@ -240,11 +241,6 @@ class BaiViet{
         if(isset($_POST['them'])&&$_POST['them'])
         {
 
-           
-           
-          
-
-
             $tieude = $this->lib->stripTags($_POST['tieude']);
             $slug = $this->lib->slug($tieude);
             $motanh = $_FILES['img'];
@@ -298,8 +294,6 @@ class BaiViet{
             }
             $locGia = array_key_first(array_filter($arrayFilterGia, "filterGia"));
             $locDienTich = array_key_first(array_filter($arrayFilterDienTich, "filterDienTich"));
-
-
 
             settype($binhchonchinhchu,"int");
             settype($binhchonmoigioi,"int");

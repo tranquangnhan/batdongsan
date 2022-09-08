@@ -231,6 +231,8 @@ $(document).ready(function () {
               let sotang = $( '#sotang' ).val();
               let nguon = $( '#nguon' ).val();
               let gia = $("#gia").val();
+              let loai = $("#loai").val();
+              let huong = $("#huong").val();
               let regexGia ='\\b(' + gia +')\\b';
               let regexDienTich ='\\b(' + dientich +')\\b';
               let regexQuanHuyen ='\\b(' + quanhuyen +')\\b';
@@ -272,7 +274,9 @@ $(document).ready(function () {
             }else{
                 that.column(9).search(regexDienTich,true,false)
             }
-            that.column(10).search(nguon, false, false).draw();
+            that.column(10).search(nguon, false, false)
+            that.column(15).search(loai, false, false)
+            that.column(16).search(huong, false, false).draw();
             
                 
           });

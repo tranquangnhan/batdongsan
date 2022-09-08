@@ -227,17 +227,31 @@
                                                         placeholder="Nhập số phòng vệ sinh" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
+                                       
                                             <div class="col-lg-4">
                                                     <div class="form-group">
                                                         <label for="">Loại</label>
                                                         <select name="loai" id="" class="form-control">
                                                             <option value="">Chọn Loại</option>
                                                             <?php
-                                                                $array = ["0"=>"Chung cư","1"=>"Hẻm","2"=>"Biệt thự","3"=>"Biệt thự","3"=>"Mặt tiền","4"=>"shophouse","5"=>"Đất nền dự án","6"=>"Đất","7"=>"Trang trại, khu nghĩ dưỡng","8"=>"Kho, nhà xưởng","9"=>"khác"];
-                                                                foreach ($array as $key => $value) {
-                                                                    echo "<option value='".$key."'>".$value."</option>";
+                                                               $newArrayLoai = [];
+                                                               foreach ($this->model->getAllLoai() as $value) {
+                                                                   array_push($newArrayLoai,$value['loai']);
+                                                               }
+                                                               
+                                                               $array = ["0"=>"Chung cư","1"=>"Hẻm","2"=>"Biệt thự","3"=>"Biệt thự","3"=>"Mặt tiền","4"=>"shophouse","5"=>"Đất nền dự án","6"=>"Đất","7"=>"Trang trại, khu nghĩ dưỡng","8"=>"Kho, nhà xưởng","9"=>"khác"];
+                                                               
+                                                               
+                                                               foreach ( $newArrayLoai as  $value) {
+                                                                    echo "<option value='".$value."'>".$value."</option>";
+                                                               }
+                                                               foreach ($array as $key => $valueLoai) {
+                                                                    if(!array_search($valueLoai,  $newArrayLoai)){
+                                                                        echo "<option value='".$valueLoai."'>".$valueLoai."</option>";
+                                                                    }
                                                                 }
-                                                            ?>
+                                                           
+                                                               ?>
 
                                                         </select>
                                                     </div>

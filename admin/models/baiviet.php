@@ -211,4 +211,9 @@ class Model_Tin extends Model_db{
         $sql = "SELECT  id,tieude FROM tin WHERE sdt = ?";
         return $this->result1(0,$sql,$phone);
     }
+
+    function getAllLoai(){
+        $sql = "SELECT loai FROM `tin` GROUP BY loai";
+        return $this->result1(0,$sql);
+    }
 }

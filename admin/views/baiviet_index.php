@@ -108,8 +108,53 @@
                                                     </select>
                                                     </div>
                                         </div>
-                                        <div class="col-lg-2 mt-3 pt-1">
-                                             <a  id="filter" class="btn btn-primary ml-2" style="color:white" role="button">Lọc Bài Viết</a>
+                                        <div class="col-lg-2">
+                                            <div class="form-group">
+                                                <label for="">Loại</label>
+                                                <?php
+                                                    $arrDienTich = ["Nhà chính chủ","Nhà bán sg","Landlooking","Chợ tốt","Ký gửi"];
+                                                ?>
+                                                <select class="form-control" name="" id="loai">
+                                                    <option value="">Chọn Loại</option>
+                                                    <?php
+                                                        $newArrayLoai = [];
+                                                        foreach ($this->model->getAllLoai() as $value) {
+                                                            array_push($newArrayLoai,$value['loai']);
+                                                        }
+                                                        
+                                                        $array = ["0"=>"Chung cư","1"=>"Hẻm","2"=>"Biệt thự","3"=>"Biệt thự","3"=>"Mặt tiền","4"=>"shophouse","5"=>"Đất nền dự án","6"=>"Đất","7"=>"Trang trại, khu nghĩ dưỡng","8"=>"Kho, nhà xưởng","9"=>"khác"];
+                                                        
+                                                        
+                                                        foreach ( $newArrayLoai as  $value) {
+                                                            echo "<option value='".$value."'>".$value."</option>";
+                                                        }
+                                                        foreach ($array as $key => $valueLoai) {
+                                                            if(!array_search($valueLoai,  $newArrayLoai)){
+                                                                echo "<option value='".$valueLoai."'>".$valueLoai."</option>";
+                                                            }
+                                                        }
+                                                    
+                                                        ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <div class="form-group">
+                                                <label for="">Hướng</label>
+                                                <select name="huong" id="huong" class="form-control">
+                                                        <option value="">Chọn Hướng</option>
+                                                        <?php
+                                                            $array = ["Đông","Tây","Nam","Bắc","Đông Bắc","Tây Bắc","Tây Nam","Đông Nam"];
+                                                            foreach ($array as $value) {
+                                                                echo '<option value="'.$value.'">'.$value.'</option>';
+                                                            }
+                                                        ?>
+
+                                                    </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 mt-1 pt-1">
+                                             <a  id="filter" class="btn btn-primary" style="color:white" role="button">Lọc Bài Viết</a>
                                         </div>
                                     </div>
                                     <br>
@@ -131,7 +176,7 @@
                                                                 <th style="display:none">Lọc Diện Tích</th>
                                                                 <th>Nguồn</th>
                                                                 <th width="5">Chi tiết </th>
-
+                                                               
                                                                <?php 
                                                                     if($_SESSION['role'] === '0'){
                                                                         echo ' <th width="5">Xoá </th>';
@@ -143,6 +188,8 @@
                                                                     }
                                                                 ?>
                                                                   <th style="display:none">id</th>
+                                                                  <th width="5" style="display:none">Loại </th>
+                                                                  <th width="5" style="display:none">Hướng </th>
                                                             </tr>
                                                         </thead>
                                                         

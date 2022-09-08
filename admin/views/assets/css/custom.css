@@ -255,5 +255,9 @@ div.dataTables_wrapper div.dataTables_filter {
     .table td, .table th{
       padding: 0.85rem 0.3rem;
     }
+    .img-slider {
+      width: 50px !important;
+      height: 90px;
+     }
 }
 

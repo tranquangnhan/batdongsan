@@ -72,11 +72,11 @@ class BaiViet{
                     foreach ($arrayImg as $index => $item) {
                         if($index == 0 ){
                             $imgs .= ' <div class="carousel-item  active">
-                            <img class="d-block w-100" src="'.$item.'" alt="Third slide">
+                            <img class="d-block w-100 img-slider" src="'.$item.'" alt="Third slide">
                           </div>';
                         }else{
                             $imgs .= ' <div class="carousel-item  ">
-                            <img class="d-block w-100" src="'.$item.'" alt="Third slide">
+                            <img class="d-block w-100 img-slider" src="'.$item.'" alt="Third slide">
                           </div>';
                         }
                       

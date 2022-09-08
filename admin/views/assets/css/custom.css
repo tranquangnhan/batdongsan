@@ -217,7 +217,10 @@ div.dataTables_wrapper div.dataTables_filter {
   .dataTables_length{
     display: none;
   }
-
+  .img-slider{
+    height: 100px;
+    object-fit: cover;
+  }
 
   
 @media only screen and (max-width: 767px){

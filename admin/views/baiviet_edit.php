@@ -40,7 +40,7 @@
                                                 ?>
                                             </div>
                                             <br>
-                                           <input class="mt-2" type="file" name="img[]" multiple>
+                                           <input class="mt-2" required="required" type="file" name="img[]" multiple>
                                         </div>
 
                                         <div class="form-group">
@@ -74,7 +74,7 @@
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label for="">Địa Chỉ</label>
-                                                    <input  type="text" name="diachi"  value="<?=$oneRecode['diachi']?>" parsley-trigger="change" required
+                                                    <input required="required" type="text" name="diachi"  value="<?=$oneRecode['diachi']?>" parsley-trigger="change" required
                                                         placeholder="Nhập địa chỉ" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
@@ -85,7 +85,7 @@
                                                     <label for="">Điện thoại</label> 
                                                    
                                                     
-                                                    <input  type="text" name="sdt"  value="<?=$oneRecode['sdt']?>" parsley-trigger="change" required
+                                                    <input required="required" type="text" name="sdt"  value="<?=$oneRecode['sdt']?>" parsley-trigger="change" required
                                                         placeholder="Nhập số điện thoại" class="form-control" id="emailAddress">
                                                         <?php
                                                             if($checkPhone>1){
@@ -94,6 +94,7 @@
                                                                 echo '<span class="badge badge-success badge-pill"> Có '.$checkPhone.' bài viết dùng sdt này</span>';
                                                             }
                                                         ?><br>
+                                                        <div class="box-linktrung">
                                                         <?php
                                                             if(isset($tinByPhone) && count($tinByPhone)>0){
                                                                 echo '<label for="">Link bài trùng</label><br>';
@@ -102,12 +103,13 @@
                                                                 }
                                                             }
                                                         ?>
+                                                        </div>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="">Người đăng</label>
-                                                    <input  type="text" name="nguoidang"  value="<?=$oneRecode['nguoidang']?>" parsley-trigger="change" required
+                                                    <input required="required" type="text" name="nguoidang"  value="<?=$oneRecode['nguoidang']?>" parsley-trigger="change" required
                                                         placeholder="Nhập người đăng" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
@@ -116,7 +118,7 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Quận huyện</label>
-                                                    <select class="form-control" name="quanhuyen" id="quanhuyen">
+                                                    <select class="form-control" name="quanhuyen" required="required" id="quanhuyen">
                                                         <option value="">Quận Huyện</option>
                                                         <?php 
                                                             foreach ( $GetProvince as $key => $value) {
@@ -134,7 +136,7 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Phường xã</label>
-                                                    <input type="hidden" id="phuongxahidden" value="<?=strtolower(trim($oneRecode['phuongxa']))?>">
+                                                    <input type="hidden" id="phuongxahidden" required="required" value="<?=strtolower(trim($oneRecode['phuongxa']))?>">
                                                     <select class="form-control" name="phuongxa" id="phuongxaajax">
                                                         <option value="" selected>Chọn Phường Xã</option>
                                                     </select>              
@@ -143,7 +145,7 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Đường</label>
-                                                    <input type="hidden" id="duonghidden" value="<?=strtolower(trim($oneRecode['duong']))?>">
+                                                    <input type="hidden" id="duonghidden" required="required" value="<?=strtolower(trim($oneRecode['duong']))?>">
                                                     <select class="form-control" name="duong" id="duongajax">
                                                         <option value="" selected>Chọn Đường</option>
                                                     </select>              
@@ -154,21 +156,21 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Giá</label>
-                                                    <input  type="text" name="gia"  value="<?=$oneRecode['gia']?>" parsley-trigger="change" required
+                                                    <input  type="text" name="gia" required="required"  value="<?=$oneRecode['gia']?>" parsley-trigger="change" required
                                                         placeholder="Nhập giá" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Diện tích</label>
-                                                    <input  type="text" name="dientich"  value="<?=$oneRecode['dientich']?>" parsley-trigger="change" required
+                                                    <input  type="text" name="dientich" required="required"  value="<?=$oneRecode['dientich']?>" parsley-trigger="change" required
                                                         placeholder="Nhập diện tích" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Diện tích công nhận</label>
-                                                    <input  type="text" name="dientichcongnhan"  value="<?=$oneRecode['dientichcongnhan']?>" parsley-trigger="change" required
+                                                    <input  type="text" name="dientichcongnhan" required="required"  value="<?=$oneRecode['dientichcongnhan']?>" parsley-trigger="change" required
                                                         placeholder="Nhập diện tích công nhận" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
@@ -178,21 +180,21 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Rộng</label>
-                                                    <input  type="number" name="rong"  value="<?=$oneRecode['rong']?>" parsley-trigger="change" required
+                                                    <input  type="number" name="rong" required="required" value="<?=$oneRecode['rong']?>" parsley-trigger="change" required
                                                         placeholder="Nhập chiều rộng" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Dài</label>
-                                                    <input  type="number" name="dai"  value="<?=$oneRecode['dai']?>" parsley-trigger="change" required
+                                                    <input  type="number" name="dai" required="required" value="<?=$oneRecode['dai']?>" parsley-trigger="change" required
                                                         placeholder="Nhập chiều dài" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Số tầng</label>
-                                                    <input  type="number" name="sotang"  value="<?=$oneRecode['sotang']?>" parsley-trigger="change" required
+                                                    <input  type="number" name="sotang" required="required"  value="<?=$oneRecode['sotang']?>" parsley-trigger="change" required
                                                         placeholder="Nhập số tầng" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
@@ -215,7 +217,7 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Số phòng ngủ </label>
-                                                    <input  type="text" name="sophongngu"  value="<?=$oneRecode['sophongngu']?>" parsley-trigger="change" required
+                                                    <input  type="text" name="sophongngu"  required="required" value="<?=$oneRecode['sophongngu']?>" parsley-trigger="change" required
                                                         placeholder="Nhập số phòng ngủ" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
@@ -226,14 +228,14 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Số phòng vệ sinh</label>
-                                                    <input  type="text" name="sophongvesinh"  value="<?=$oneRecode['sophongvesinh']?>" parsley-trigger="change" required
+                                                    <input  type="text" name="sophongvesinh" required="required" value="<?=$oneRecode['sophongvesinh']?>" parsley-trigger="change" required
                                                         placeholder="Nhập số phòng vệ sinh" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                         <label for="">Hướng</label>
-                                                        <select name="huong" id="" class="form-control">
+                                                        <select name="huong" id="" class="form-control" required="required">
                                                                 <option value="">Chọn Hướng</option>
                                                                 <?php
                                                                     $array = ["Đông","Tây","Nam","Bắc","Đông Bắc","Tây Bắc","Tây Nam","Đông Nam"];
@@ -252,7 +254,7 @@
                                             <div class="col-lg-4">
                                               <div class="form-group">
                                                   <label for="">Đường rộng</label>
-                                                  <input  type="number" name="duongrong"  value="<?=$oneRecode['duongrong']?>" parsley-trigger="change" required
+                                                  <input  type="number" name="duongrong" required="required"  value="<?=$oneRecode['duongrong']?>" parsley-trigger="change" required
                                                       placeholder="Nhập đường rộng" class="form-control" id="emailAddress">
                                               </div>
                                           </div>
@@ -262,14 +264,14 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Ngày Đăng</label>
-                                                    <input  type="date" name="ngaydang"  value="<?=$oneRecode['ngaydang']?>" parsley-trigger="change" required
+                                                    <input  type="date" name="ngaydang"  required="required" value="<?=$oneRecode['ngaydang']?>" parsley-trigger="change" required
                                                         placeholder="Nhập số phòng ngủ" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Ngày Cập Nhật</label>
-                                                    <input  type="date" name="ngaycapnhat"  value="<?=$oneRecode['ngaycapnhat'] ?? date("Y-m-d")?>" parsley-trigger="change" required
+                                                    <input  type="date" name="ngaycapnhat" required="required" value="<?=$oneRecode['ngaycapnhat'] ?? date("Y-m-d")?>" parsley-trigger="change" required
                                                         placeholder="Nhập số phòng vệ sinh" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
@@ -277,7 +279,7 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Loại</label>
-                                                    <select name="loai" id="" class="form-control">
+                                                    <select name="loai" id="" class="form-control" required="required">
                                                         <option value="">Chọn Loại</option>
                                                         <?php
                                                         $newArrayLoai = [];
@@ -321,7 +323,7 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Pháp lý</label>
-                                                    <select name="phaply" id="" class="form-control">
+                                                    <select name="phaply" id="" class="form-control" required="required">
                                                         <option value="">Pháp Lý</option>
                                                         <?php
                                                             $array = ["0"=>"Sổ hồng/ Sổ đỏ","1"=>"Hợp đồng mua bán / khác"];
@@ -340,7 +342,7 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Nguồn</label>
-                                                    <select name="nguon" id="" class="form-control">
+                                                    <select name="nguon" id="" class="form-control" required="required">
                                                         <option value="">Nguồn</option>
                                                         <?php
                                                             $array = ["0"=>"Nhà Chính Chủ","1"=>"Nhà bán sg","2"=>"landlooking","3"=>"Chợ tốt","4"=>"Ký gửi"];
@@ -362,7 +364,7 @@
                                           <div class="col-lg-4">
                                               <div class="form-group">
                                                   <label for="">Kiểm duyệt</label>
-                                                  <input  type="checkbox"  name="kiemduyet" <?php echo ($oneRecode['kiemduyet'] == 1) ? "checked" : "" ?> parsley-trigger="change" required
+                                                  <input  type="checkbox"  name="kiemduyet"  <?php echo ($oneRecode['kiemduyet'] == 1) ? "checked" : "" ?> parsley-trigger="change" required
                                                      class="form-control" id="emailAddress">
                                               </div>
                                           </div>
@@ -386,7 +388,7 @@
                                           <div class="col-lg-4">
                                               <div class="form-group">
                                                   <label for="">Trạng thái nhà</label>
-                                                  <select name="trangthainha" id="" class="form-control">
+                                                  <select name="trangthainha" id="" class="form-control" required="required">
                                                         <option value=""></option>
                                                         <?php
                                                             $array = ["0"=>"Đã bán","1"=>"Chưa bán","2"=>"Đã cho thuê","3"=>"Chưa cho thuê"];
@@ -407,7 +409,7 @@
                                       </div>
 
 
-                                            <textarea id="editor1" style="height: 300px;width:100%" name="mota" >
+                                            <textarea id="editor1" style="height: 300px;width:100%" name="mota" required="required" >
                                             <?=$oneRecode['mota']?>
                                            </textarea>
                                           

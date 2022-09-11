@@ -221,6 +221,10 @@ div.dataTables_wrapper div.dataTables_filter {
     height: 100px;
     object-fit: cover;
   }
+  .box-linktrung{
+    height: 150px;
+    overflow: auto;
+  }
 
   
 @media only screen and (max-width: 767px){

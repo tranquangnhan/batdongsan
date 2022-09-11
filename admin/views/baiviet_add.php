@@ -31,7 +31,7 @@
                                         <div class="form-group">
                                             <label for="">Hình ảnh</label>
                                            
-                                           <input class="mt-2" type="file" name="img[]" multiple>
+                                           <input class="mt-2" type="file" name="img[]" multiple  required="required">
                                         </div>
 
                                         <div class="form-group">
@@ -55,7 +55,7 @@
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label for="">Địa Chỉ</label>
-                                                    <input  type="text" name="diachi"  value="" parsley-trigger="change" 
+                                                    <input  type="text" name="diachi"  required="required"  value="" parsley-trigger="change" 
                                                         placeholder="Nhập địa chỉ" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
@@ -64,14 +64,14 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="">Điện thoại</label>
-                                                    <input  type="text" name="sdt"  value="" parsley-trigger="change" 
+                                                    <input  type="number" name="sdt"  required="required"  value="" parsley-trigger="change" 
                                                         placeholder="Nhập số điện thoại" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="">Người đăng</label>
-                                                    <input  type="text" name="nguoidang"  value="" parsley-trigger="change" 
+                                                    <input  type="text" name="nguoidang"  required="required" value="" parsley-trigger="change" 
                                                         placeholder="Nhập người đăng" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
@@ -81,7 +81,7 @@
                                                 <div class="form-group">
                                                     <label for="">Quận huyện</label>
                                                     
-                                                    <select class="form-control" name="quanhuyen" id="quanhuyen">
+                                                    <select class="form-control" name="quanhuyen" id="quanhuyen"  required="required">
                                                         <option value="">Quận Huyện</option>
                                                         <?php 
                                                             foreach ( $GetProvince as $key => $value) {
@@ -94,7 +94,7 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Phường xã</label>
-                                                    <select class="form-control" name="phuongxa" id="phuongxaajax">
+                                                    <select class="form-control" name="phuongxa" id="phuongxaajax"  required="required">
                                                         <option value="" selected>Chọn Phường Xã</option>
                                                     </select>
                                                 </div>
@@ -102,7 +102,7 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Đường</label>
-                                                    <select class="form-control" name="duong" id="duongajax">
+                                                    <select class="form-control" name="duong" id="duongajax"  required="required">
                                                         <option value="" selected>Chọn Đường</option>
                                                     </select>
                                                 </div>
@@ -112,21 +112,21 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Giá</label>
-                                                    <input  type="text" name="gia"  value="" parsley-trigger="change" 
+                                                    <input  type="text" name="gia"  value=""  required="required" parsley-trigger="change" 
                                                         placeholder="Nhập giá" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Diện tích</label>
-                                                    <input  type="text" name="dientich"  value="" parsley-trigger="change" 
+                                                    <input  type="text" name="dientich"  value=""  required="required" parsley-trigger="change" 
                                                         placeholder="Nhập diện tích" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Diện tích công nhận</label>
-                                                    <input  type="text" name="dientichcongnhan"  value="" parsley-trigger="change" 
+                                                    <input  type="text" name="dientichcongnhan"  required="required"  value="" parsley-trigger="change" 
                                                         placeholder="Nhập diện tích công nhận" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
@@ -136,21 +136,21 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Rộng</label>
-                                                    <input  type="number" name="rong"  value="" parsley-trigger="change" 
+                                                    <input  type="number" name="rong"  required="required" value="" parsley-trigger="change" 
                                                         placeholder="Nhập chiều rộng" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Dài</label>
-                                                    <input  type="number" name="dai"  value="" parsley-trigger="change" 
+                                                    <input  type="number" name="dai"  required="required" value="" parsley-trigger="change" 
                                                         placeholder="Nhập chiều dài" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Số tầng</label>
-                                                    <input  type="number" name="sotang"  value="" parsley-trigger="change" 
+                                                    <input  type="number" name="sotang" required="required"  value="" parsley-trigger="change" 
                                                         placeholder="Nhập số tầng" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
@@ -174,7 +174,7 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Số phòng ngủ </label>
-                                                    <input  type="text" name="sophongngu"  value="" parsley-trigger="change" 
+                                                    <input  type="text" name="sophongngu" required="required"  value="" parsley-trigger="change" 
                                                         placeholder="Nhập số phòng ngủ" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
@@ -184,14 +184,14 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Số phòng vệ sinh</label>
-                                                    <input  type="text" name="sophongvesinh"  value="" parsley-trigger="change" 
+                                                    <input  type="text" name="sophongvesinh"  required="required" value="" parsley-trigger="change" 
                                                         placeholder="Nhập số phòng vệ sinh" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Hướng</label>
-                                                    <select name="huong" id="" class="form-control">
+                                                    <select name="huong" id="" class="form-control" required="required">
                                                             <option value="">Chọn Hướng</option>
                                                             <?php
                                                                 $array = ["Đông","Tây","Nam","Bắc","Đông Bắc","Tây Bắc","Tây Nam","Đông Nam"];
@@ -206,7 +206,7 @@
                                             <div class="col-lg-4">
                                               <div class="form-group">
                                                   <label for="">Đường rộng</label>
-                                                  <input  type="number" name="duongrong"  value="" parsley-trigger="change" 
+                                                  <input  type="number" name="duongrong" required="required" value="" parsley-trigger="change" 
                                                       placeholder="Nhập đường rộng" class="form-control" id="emailAddress">
                                               </div>
                                           </div>
@@ -216,14 +216,14 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Ngày Đăng</label>
-                                                    <input  type="date" name="ngaydang"  value="" parsley-trigger="change" 
+                                                    <input  type="date" name="ngaydang" required="required"  value="" parsley-trigger="change" 
                                                         placeholder="Nhập số phòng ngủ" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Ngày Cập Nhật</label>
-                                                    <input  type="date" name="ngaycapnhat"  value="" parsley-trigger="change" 
+                                                    <input  type="date" name="ngaycapnhat" required="required" value="" parsley-trigger="change" 
                                                         placeholder="Nhập số phòng vệ sinh" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
@@ -231,7 +231,7 @@
                                             <div class="col-lg-4">
                                                     <div class="form-group">
                                                         <label for="">Loại</label>
-                                                        <select name="loai" id="" class="form-control">
+                                                        <select name="loai" id="" class="form-control" required="required">
                                                             <option value="">Chọn Loại</option>
                                                             <?php
                                                                $newArrayLoai = [];
@@ -270,7 +270,7 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                         <label for="">Pháp lý</label>
-                                                        <select name="phaply" id="" class="form-control">
+                                                        <select name="phaply" id="" class="form-control" required="required">
                                                             <option value="">Pháp Lý</option>
                                                             <?php
                                                                 $array = ["0"=>"Sổ hồng/ Sổ đỏ","1"=>"Hợp đồng mua bán / khác"];
@@ -283,30 +283,17 @@
                                                     </div>
                                             </div>
                                             <div class="col-lg-4">
-                                                <div class="form-group">
-                                                    <label for="">Nguồn</label>
-                                                    <select name="nguon" id="" class="form-control">
-                                                        <option value="">Chọn nguồn</option>
-                                                        <?php
-                                                            $array = ["0"=>"Nhà Chính Chủ","1"=>"Nhà bán Sg","2"=>"landlooking","3"=>"Chợ tốt","4"=>"Ký gửi"];
-                                                            foreach ($array as $key => $value) {
-                                                                echo "<option value='".$key."'>".$value."</option>";
-                                                            }
-                                                        ?>
+                                              <div class="form-group">
+                                                  <label for="">Kiểm duyệt</label>
+                                                  <input  type="checkbox"  name="kiemduyet"  parsley-trigger="change" 
+                                                     class="form-control" id="emailAddress">
+                                              </div>
+                                          </div>                   
 
-                                                    </select>
-                                                </div>
-                                            </div>
                                         </div>
 
                                         <div class="row">
-                                          <div class="col-lg-4">
-                                              <div class="form-group">
-                                                  <label for="">Kiểm duyệt</label>
-                                                  <input  type="checkbox"  name="kiemduyet" parsley-trigger="change" 
-                                                     class="form-control" id="emailAddress">
-                                              </div>
-                                          </div>
+                                         
                                           <div class="col-lg-4">
                                               <div class="form-group">
                                                   <label for="">Bình chọn chính chủ</label>
@@ -321,13 +308,10 @@
                                                       placeholder="Nhập bình chọn môi giới" class="form-control" id="emailAddress">
                                               </div>
                                           </div>
-                                      </div>
-
-                                      <div class="row">
                                           <div class="col-lg-4">
                                               <div class="form-group">
                                                   <label for="">Trạng thái nhà</label>
-                                                  <select name="trangthainha" id="" class="form-control">
+                                                  <select name="trangthainha" id="" class="form-control" required="required">
                                                         <option value="">Trạng thái nhà</option>
                                                         <?php
                                                             $array = ["0"=>"Đã bán","1"=>"Chưa bán","2"=>"Đã cho thuê","3"=>"Chưa cho thuê"];
@@ -341,12 +325,9 @@
                                                     </select>
                                               </div>
                                           </div>
-                                        
-                                       
                                       </div>
 
-
-                                            <textarea id="editor1" style="height: 300px;width:100%" name="mota" >
+                                            <textarea required="required" id="editor1" style="height: 300px;width:100%" name="mota" >
                                            
                                            </textarea>
                                           

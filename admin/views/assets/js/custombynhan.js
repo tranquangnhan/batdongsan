@@ -135,7 +135,8 @@ $(document).ready(function () {
             res += response.xa?.reduce((kq,item)=>{
                 if(phuongXaHidden != '' && phuongXaHidden?.toLowerCase()?.trim() == item?.ten_phuong?.toLowerCase()?.trim()){
                     kq += `<option selected data-id="${item.id_phuong}" value="${item.ten_phuong}">${item.ten_phuong}</option>`;
-                }else{
+                }
+                else{
                     kq += `<option data-id="${item.id_phuong}" value="${item.ten_phuong}">${item.ten_phuong}</option>`;
                 }
                 return kq;

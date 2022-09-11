@@ -213,7 +213,7 @@ class Model_Tin extends Model_db{
     }
 
     function getAllLoai(){
-        $sql = "SELECT loai FROM `tin` GROUP BY loai";
+        $sql = "SELECT loai FROM `tin` WHERE loai != '' GROUP BY loai";
         return $this->result1(0,$sql);
     }
 }

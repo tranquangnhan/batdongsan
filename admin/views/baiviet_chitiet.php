@@ -88,15 +88,16 @@
                                             }
                                         ?>
                                         <br>
-                                       
-                                        <?php
-                                            if(isset($tinByPhone) && count($tinByPhone)>0){
-                                                echo '<label for="">Link bài trùng</label><br>';
-                                                foreach ($tinByPhone as  $value) {
-                                                    echo '<span style="font-size:9pt"><a href="index.php?ctrl=baiviet&act=detail&id='.$value['id'].'">'.$value['tieude'].'</a></span><br>';
+                                        <div class="box-linktrung">
+                                            <?php
+                                                if(isset($tinByPhone) && count($tinByPhone)>0){
+                                                    echo '<label for="">Link bài trùng</label><br>';
+                                                    foreach ($tinByPhone as  $value) {
+                                                        echo '<span style="font-size:9pt"><a href="index.php?ctrl=baiviet&act=detail&id='.$value['id'].'">'.$value['tieude'].'</a></span><br>';
+                                                    }
                                                 }
-                                            }
-                                        ?>
+                                            ?>
+                                          </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <h5 class="font-600 m-b-5">Người đăng</h5>

@@ -62,12 +62,21 @@ class Users{
             $Password = $_POST['Password'];
             $Email = $_POST['Email'];
             $VaiTro = $_POST['VaiTro'];
-            $AnHien = $_POST['AnHien']=== 'on' ? 1: 0;
+            $AnHien = $_POST['AnHien'] === 'on' ? 1: 0;
 
+          
+
+            
+           
+            
             $_SESSION['message'] = "";
             if($Username == ""){
-                $_SESSION['message'] = "Bạn chưa nhập tên";
-            } 
+                $_SESSION['message'] = "Bạn chưa nhập username";
+            }elseif($Email == ""){
+                $_SESSION['message'] = "Bạn chưa nhập email";
+            }elseif(strlen($Username)<6 || strlen($Username)>12){
+                $_SESSION['message'] = "Username phải từ 6 - 12 kí tự";
+            }
          
 
 
@@ -86,7 +95,19 @@ class Users{
                     } elseif($countEmail >=1 && $Email !== $oneRecode['Email']){
                         $_SESSION['message'] = "Email đã tồn tại, mời bạn chọn email khác";
                     }
-                    $this->edit($HoTen, $Username,$Password, $Email,$VaiTro,$AnHien,$id);
+
+                    if( $oneRecode['Password'] != $Password){
+                     // Validate password strength
+                     $uppercase = preg_match('@[A-Z]@', $Password);
+                     $lowercase = preg_match('@[a-z]@', $Password);
+                     $number    = preg_match('@[0-9]@', $Password);
+                     $specialChars = preg_match('@[^\w]@', $Password);
+                     if( !$uppercase || !$lowercase || !$number || !$specialChars || strlen($Password) < 6 ){
+                         $_SESSION['message'] = "Password phải từ 6 kí tự trở lên, chứa kí tự đặc biệt, chữ hoa, chữ thường";
+                     }
+                    }
+
+                    $this->edit($HoTen, $Username,md5($Password), $Email,$VaiTro,$AnHien,$id);
                 }else
                 {
                     $countEmail = $this->model->checkEmailIsExits($Email);
@@ -96,7 +117,15 @@ class Users{
                     } elseif($countEmail >=1 ){
                         $_SESSION['message'] = "Email đã tồn tại, mời bạn chọn email khác";
                     }
-                    $this->store( $HoTen, $Username,$Password, $Email,$VaiTro,$AnHien);
+                    // Validate password strength
+                    $uppercase = preg_match('@[A-Z]@', $Password);
+                    $lowercase = preg_match('@[a-z]@', $Password);
+                    $number    = preg_match('@[0-9]@', $Password);
+                    $specialChars = preg_match('@[^\w]@', $Password);
+                    if( !$uppercase || !$lowercase || !$number || !$specialChars || strlen($Password) < 6 ){
+                        $_SESSION['message'] = "Password phải từ 6 kí tự trở lên, chứa kí tự đặc biệt, chữ hoa, chữ thường";
+                    }
+                    $this->store( $HoTen, $Username,md5($Password), $Email,$VaiTro,$AnHien);
                 }    
             }
 

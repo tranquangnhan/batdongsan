@@ -34,7 +34,7 @@ class Login
         {
             $user = $this->lib->stripTags($_POST['user']);
             $pass = $this->lib->stripTags($_POST['password']);
-            $taiKhoan = $this->model->checkUser($user,$pass);
+            $taiKhoan = $this->model->checkUser($user,md5($pass));
 
             if($user == ""||$pass == ""){
                 $_SESSION['error_taikhoan'] = "Vui lòng điền đầy đủ thông tin.";

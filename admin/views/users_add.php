@@ -33,7 +33,7 @@
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label for="">Họ Tên</label>
-                                                    <input type="text" name="HoTen"  parsley-trigger="change" required
+                                                    <input type="text" name="HoTen" value="<?php if(isset($_POST['HoTen'])) echo $_POST['HoTen']; ?>"  parsley-trigger="change" required
                                                         placeholder="Nhập họ tên" class="form-control" id="userName">
                                                 </div>
                                             </div>
@@ -43,7 +43,7 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="">Tên Người Dùng</label>
-                                                    <input  type="text" name="Username"   parsley-trigger="change" required
+                                                    <input  type="text" name="Username" value="<?php if(isset($_POST['Username'])) echo $_POST['Username']; ?>" parsley-trigger="change" required
                                                         placeholder="Nhập tên người dùng" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
@@ -59,7 +59,7 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="">Email</label>
-                                                    <input  type="text" name="Email"   parsley-trigger="change" required
+                                                    <input  type="text" name="Email" value="<?php if(isset($_POST['Email'])) echo $_POST['Email']; ?>"   parsley-trigger="change" required
                                                         placeholder="Nhập email" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>

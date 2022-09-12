@@ -112,21 +112,21 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Giá</label>
-                                                    <input  type="text" name="gia"  value=""  required="required" parsley-trigger="change" 
+                                                    <input  type="number" name="gia"  value=""  required="required" parsley-trigger="change" 
                                                         placeholder="Nhập giá" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Diện tích</label>
-                                                    <input  type="text" name="dientich"  value=""  required="required" parsley-trigger="change" 
+                                                    <input  type="number" name="dientich"  value=""  required="required" parsley-trigger="change" 
                                                         placeholder="Nhập diện tích" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Diện tích công nhận</label>
-                                                    <input  type="text" name="dientichcongnhan"  required="required"  value="" parsley-trigger="change" 
+                                                    <input  type="number" name="dientichcongnhan"  required="required"  value="" parsley-trigger="change" 
                                                         placeholder="Nhập diện tích công nhận" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
@@ -159,14 +159,14 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Số tờ </label>
-                                                    <input  type="text" name="soto"  value="" parsley-trigger="change" 
+                                                    <input  type="number" name="soto"  value="" parsley-trigger="change" 
                                                         placeholder="Nhập số tờ" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Số thuở</label>
-                                                    <input  type="text" name="sothuo"  value="" parsley-trigger="change" 
+                                                    <input  type="number" name="sothuo"  value="" parsley-trigger="change" 
                                                         placeholder="Nhập số thuở" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
@@ -174,7 +174,7 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Số phòng ngủ </label>
-                                                    <input  type="text" name="sophongngu" required="required"  value="" parsley-trigger="change" 
+                                                    <input  type="number" name="sophongngu" required="required"  value="" parsley-trigger="change" 
                                                         placeholder="Nhập số phòng ngủ" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
@@ -184,7 +184,7 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Số phòng vệ sinh</label>
-                                                    <input  type="text" name="sophongvesinh"  required="required" value="" parsley-trigger="change" 
+                                                    <input  type="number" name="sophongvesinh"  required="required" value="" parsley-trigger="change" 
                                                         placeholder="Nhập số phòng vệ sinh" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>

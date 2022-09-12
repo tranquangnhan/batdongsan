@@ -294,7 +294,7 @@ class BaiViet{
             }
             $locGia = array_key_first(array_filter($arrayFilterGia, "filterGia"));
             $locDienTich = array_key_first(array_filter($arrayFilterDienTich, "filterDienTich"));
-
+            
             settype($binhchonchinhchu,"int");
             settype($binhchonmoigioi,"int");
 

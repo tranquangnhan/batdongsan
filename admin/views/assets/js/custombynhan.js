@@ -166,12 +166,13 @@ $(document).ready(function () {
         data: {id:idPhuongXa},
         dataType: "JSON",
         success: function (response) {
-            let duongHidden = $("#duonghidden").val();
+            let duongHidden = $("#duonghidden").val()?.toLowerCase()?.trim();
 
             let res = '';
             res += `<option value="" selected>Chọn đường</option>`;
             res += response.duong?.reduce((kq,item)=>{
-                if(duongHidden != '' && duongHidden?.toLowerCase()?.trim() == item?.ten_duong?.toLowerCase()?.trim()){
+                
+                if(duongHidden != '' && (duongHidden == item?.ten_duong?.toLowerCase()?.trim() ||'đường '+ duongHidden == item?.ten_duong?.toLowerCase()?.trim())){
                     kq += `<option selected value="${item.ten_duong}">${item.ten_duong}</option>`;
                 }else{
                     kq += `<option value="${item.ten_duong}">${item.ten_duong}</option>`;
@@ -236,6 +237,7 @@ $(document).ready(function () {
               let regexQuanHuyen ='\\b(' + quanhuyen +')\\b';
               let regexPhuongXa ='\\b(' + phuongxa +')\\b';
               let regexDuong ='\\b(' + duong +')\\b';
+              let regexHuong ='\\b^(' + huong +')$\\b';
                 
               that.column(1).search(tieude)
               if(!quanhuyen){
@@ -273,7 +275,13 @@ $(document).ready(function () {
             }
             that.column(10).search(nguon, false, false)
             that.column(15).search(loai, false, false)
-            that.column(16).search(huong, false, false).draw();
+            if(huong == ""){
+                that.column(16).search("").draw();
+            }else{
+                console.log('test')
+                that.column(16).search(regexHuong, true, false).draw();
+            }
+           
             
                 
           });

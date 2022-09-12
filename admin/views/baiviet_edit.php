@@ -85,7 +85,7 @@
                                                     <label for="">Điện thoại</label> 
                                                    
                                                     
-                                                    <input required="required" type="text" name="sdt"  value="<?=$oneRecode['sdt']?>" parsley-trigger="change" required
+                                                    <input required="required" type="number" name="sdt"  value="<?=$oneRecode['sdt']?>" parsley-trigger="change" required
                                                         placeholder="Nhập số điện thoại" class="form-control" id="emailAddress">
                                                         <?php
                                                             if($checkPhone>1){
@@ -157,21 +157,21 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Giá</label>
-                                                    <input  type="text" name="gia" required="required"  value="<?=$oneRecode['gia']?>" parsley-trigger="change" required
+                                                    <input  type="number" name="gia" required="required"  value="<?=$oneRecode['gia']?>" parsley-trigger="change" required
                                                         placeholder="Nhập giá" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Diện tích</label>
-                                                    <input  type="text" name="dientich" required="required"  value="<?=$oneRecode['dientich']?>" parsley-trigger="change" required
+                                                    <input  type="number" name="dientich" required="required"  value="<?=$oneRecode['dientich']?>" parsley-trigger="change" required
                                                         placeholder="Nhập diện tích" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Diện tích công nhận</label>
-                                                    <input  type="text" name="dientichcongnhan" required="required"  value="<?=$oneRecode['dientichcongnhan']?>" parsley-trigger="change" required
+                                                    <input  type="number" name="dientichcongnhan" required="required"  value="<?=$oneRecode['dientichcongnhan']?>" parsley-trigger="change" required
                                                         placeholder="Nhập diện tích công nhận" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
@@ -204,21 +204,21 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Số tờ </label>
-                                                    <input  type="text" name="soto"  value="<?=$oneRecode['soto']?>" parsley-trigger="change" required
+                                                    <input  type="number" name="soto"  value="<?=$oneRecode['soto']?>" parsley-trigger="change" required
                                                         placeholder="Nhập số tờ" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Số thuở</label>
-                                                    <input  type="text" name="sothuo"  value="<?=$oneRecode['sothuo']?>" parsley-trigger="change" required
+                                                    <input  type="number" name="sothuo"  value="<?=$oneRecode['sothuo']?>" parsley-trigger="change" required
                                                         placeholder="Nhập số thuở" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Số phòng ngủ </label>
-                                                    <input  type="text" name="sophongngu"  required="required" value="<?=$oneRecode['sophongngu']?>" parsley-trigger="change" required
+                                                    <input  type="number" name="sophongngu"  required="required" value="<?=$oneRecode['sophongngu']?>" parsley-trigger="change" required
                                                         placeholder="Nhập số phòng ngủ" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>
@@ -229,7 +229,7 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="">Số phòng vệ sinh</label>
-                                                    <input  type="text" name="sophongvesinh" required="required" value="<?=$oneRecode['sophongvesinh']?>" parsley-trigger="change" required
+                                                    <input  type="number" name="sophongvesinh" required="required" value="<?=$oneRecode['sophongvesinh']?>" parsley-trigger="change" required
                                                         placeholder="Nhập số phòng vệ sinh" class="form-control" id="emailAddress">
                                                 </div>
                                             </div>

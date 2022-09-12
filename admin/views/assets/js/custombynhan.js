@@ -78,7 +78,6 @@ $.fn.dataTable.pipeline = function (opts) {
               // As an object, the data given extends the default
               $.extend(request, conf.data);
           }
-          console.log(request)
           return $.ajax({
               type: conf.method,
               url: conf.url,
@@ -86,7 +85,6 @@ $.fn.dataTable.pipeline = function (opts) {
               dataType: 'json',
               cache: false,
               success: function (json) {
-                  console.log(json)
                   cacheLastJson = $.extend(true, {}, json);
 
                   if (cacheLower != drawStart) {
@@ -162,7 +160,6 @@ $(document).ready(function () {
   
 
   function getDuong(idPhuongXa){
-    console.log(idPhuongXa)
     $.ajax({
         type: "POST",
         url: "?ctrl=baiviet&act=getduong",
@@ -239,7 +236,6 @@ $(document).ready(function () {
               let regexQuanHuyen ='\\b(' + quanhuyen +')\\b';
               let regexPhuongXa ='\\b(' + phuongxa +')\\b';
               let regexDuong ='\\b(' + duong +')\\b';
-              console.log(quanhuyen)
                 
               that.column(1).search(tieude)
               if(!quanhuyen){

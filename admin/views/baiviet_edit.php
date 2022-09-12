@@ -114,6 +114,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                
                                         <div class="row">
                                             <div class="col-lg-4">
                                                 <div class="form-group">
@@ -122,7 +123,7 @@
                                                         <option value="">Quận Huyện</option>
                                                         <?php 
                                                             foreach ( $GetProvince as $key => $value) {
-                                                                if(strtolower($value['ten_quan']) == strtolower(trim($oneRecode['quanhuyen']))){
+                                                                if(mb_strtolower($value['ten_quan']) == mb_strtolower(trim($oneRecode['quanhuyen'])) || mb_strtolower($value['ten_quan']) == "quận ".mb_strtolower(trim($oneRecode['quanhuyen']))){
                                                                     echo '<option selected data-id="'.$value['id_quan'].'" value="'.$value['ten_quan'].'">'.$value['ten_quan'].'</option>';
                                                                 }else{
                                                                     echo '<option  data-id="'.$value['id_quan'].'" value="'.$value['ten_quan'].'">'.$value['ten_quan'].'</option>';

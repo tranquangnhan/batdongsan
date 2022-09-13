@@ -94,7 +94,10 @@ class Login
             }
             else
             {
-                $taiKhoan = $this->model->signup($user,$pass,$sdt);
+                $taiKhoan = $this->model->signup($user,md5($pass),$sdt);
+                print_r($taiKhoan);
+                exit();
+                
                 if($taiKhoan)
                 {
                     $_SESSION['sid'] = $taiKhoan['idUser'];

@@ -76,12 +76,21 @@ class Login
             $pass = $this->lib->stripTags($_POST['password']);
             $repass = $this->lib->stripTags($_POST['repassword']);
 
+            $uppercase = preg_match('@[A-Z]@', $pass);
+            $lowercase = preg_match('@[a-z]@', $pass);
+            $number    = preg_match('@[0-9]@', $pass);
+            $specialChars = preg_match('@[^\w]@', $pass);
+
             if($user == ""||$pass == "" || $repass == ""){
                 $_SESSION['error_taikhoan'] = "Vui lòng điền đầy đủ thông tin.";
             }elseif($pass !== $repass){
                 $_SESSION['error_taikhoan'] = "Mật khẩu nhập lại không trùng khớp";
             }elseif( $this->model->checkUserIsExit($user) >= 1){
                 $_SESSION['error_taikhoan'] = "Tài khoản đã tồn tại";
+            }elseif(strlen($user)<6 || strlen($user)>12){
+                $_SESSION['error_taikhoan'] = "Username phải từ 6 - 12 kí tự";
+            }elseif( !$uppercase || !$lowercase || !$number || !$specialChars || strlen($pass) < 6 ){
+                $_SESSION['error_taikhoan'] = "Password phải từ 6 kí tự trở lên, chứa kí tự đặc biệt, chữ hoa, chữ thường";
             }
             else
             {

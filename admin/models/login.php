@@ -16,8 +16,8 @@ class Model_login extends Model_db{
 
     function signup($user,$pass,$sdt)
     {
-        $sql = "INSERT INTO users (Username, Password, sdtgioithieu)
-        VALUES (?,?,?);";
+        $sql = "INSERT INTO users (Username, Password, sdtgioithieu,VaiTro)
+        VALUES (?,?,?,2);";
         $kq =  $this->exec1($sql,$user,$pass,$sdt);
         if($kq){
              return $this->checkUser($user,$pass);

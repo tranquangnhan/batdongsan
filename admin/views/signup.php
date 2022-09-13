@@ -65,7 +65,7 @@
                                     </div>
 
                                     <div class="form-group mb-0 text-center">
-                                        <input class="btn btn-primary btn-block" type="submit" name="login" value="Đăng Nhập">
+                                        <input class="btn btn-primary btn-block" type="submit" name="login" value="Đăng Ký">
                                     </div>
 
                                 </form>

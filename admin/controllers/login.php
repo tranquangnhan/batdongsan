@@ -70,6 +70,7 @@ class Login
     function signup(){
         if(isset($_POST['login'])&&($_POST['login']))
         {
+            
             $user = $this->lib->stripTags($_POST['user']);
             $sdt = $this->lib->stripTags($_POST['sdt']);
             $pass = $this->lib->stripTags($_POST['password']);
@@ -92,7 +93,6 @@ class Login
                     $_SESSION['role'] = $taiKhoan['VaiTro'];
                     header("location: ".ROOT_URL."/admin.php");
                 }else{
-
                     header('location: login.php?act=signup');
                 }
             }
